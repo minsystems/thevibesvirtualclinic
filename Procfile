@@ -1,0 +1,1 @@
+web: gunicorn thevibesvirtualclinic.wsgi --log-file -

@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+    {% include 'includes/home-care.html' %}
+
+    <section class="section stretch-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">Why Choose Us</h2>
+            <p class="mb-0 lead">
+                The Vibes Virtual Clinic is a hybrid healthcare services platform integrating the conventional physical
+                and the digital medical services to provide the benefit of convenience and best-in-class services online
+                from the comfort of home.
+            </p>
+          </div>
+        </div>
+        <div class="row align-items-center">
+
+          <div class="col-md-6 stretch-left-1 element-animate" data-animate-effect="fadeInLeft">
+            <a href="#" class="video"><img src="https://cdn.thevibesclinic.com/vvc/img/img_1.jpg" alt="" class="img-fluid"></a>
+          </div>
+          <div class="col-md-6 stretch-left-1-offset pl-md-5 pl-0 element-animate" data-animate-effect="fadeInLeft">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="media d-block media-feature text-center">
+                  <img src="https://cdn.thevibesclinic.com/vvc/img/002-hospital.png" class="img-responsive" width="60px" height="60px">
+                  <div class="media-body">
+                    <br/>
+                    <h3 class="mt-0 text-black">Amenities</h3>
+                    <p>
+                        Even At An Affordable Cost Be Assured To Get Professional Consultation From Only The Best Medical Practitioners Around The World.
+                        All Doctors On Our Platform Go Through A Stringent Verification Process
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="media d-block media-feature text-center">
+                  <img src="https://cdn.thevibesclinic.com/vvc/img/001-first-aid-kit.png" class="img-responsive" width="60px" height="60px">
+                  <div class="media-body">
+                    <br/>
+                    <h3 class="mt-0 text-black">Medical Services</h3>
+                    <p>
+                        And The Doctor Will See You Now!
+                        Like Facebook The Vibes Virtual Clinic is accessible to you 24x7, round the clock.
+                        The best advice & consultation on all your health issues.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="media d-block media-feature text-center">
+                  <img src="https://cdn.thevibesclinic.com/vvc/img/003-hospital-bed.png" class="img-responsive" width="60px" height="60px">
+                  <div class="media-body">
+                    <br/>
+                    <h3 class="mt-0 text-black">Patient Services</h3>
+                    <p>
+                        The Vibes Virtual Clinic is Your Call Centre For Healthcare Access. Why Google About Your Health
+                        Condition When You Can Ask Doctor.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="media d-block media-feature text-center">
+                  <img src="https://cdn.thevibesclinic.com/vvc/img/004-stethoscope.png" class="img-responsive" width="60px" height="60px">
+                  <div class="media-body">
+                    <br/>
+                    <h3 class="mt-0 text-black">Expert Doctors</h3>
+                    <p>
+                        We assure only the very best. Get ready to experience a one of a kind healthcare service
+                        that comes to you through cutting edge technology and tools.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="section custom-tabs">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 border-right element-animate">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>01</span> Anytime Anywhere Access Doctors</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>02</span> Travellers Choice</a>
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>03</span> No Queue for Appointments</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>04</span> Get a Subscription Plan</a>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-7 element-animate">
+
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <img src="https://cdn.thevibesclinic.com/vvc/img/002-hospital.png" class="img-responsive" width="60px" height="60px">
+                <br/>
+                <h2 class="text-primary">Anytime Anywhere Access Doctors</h2>
+                <p class="lead">Upload your medical reports and share your health issues with our doctors online</p>
+                <p>Expert MDs answer every health issue. Our doctors answer your queries 24/7.</p>
+                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+              </div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <img src="https://cdn.thevibesclinic.com/vvc/img/001-first-aid-kit.png" class="img-responsive" width="60px" height="60px">
+                <br/>
+                <h2 class="text-primary">Travellers Choice</h2>
+                <p class="lead">The most challenging thing for experts and travellers is access to doctors.</p>
+                <p>Our doctors specifically address the needs of experts and travellers.</p>
+                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+              </div>
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <img src="https://cdn.thevibesclinic.com/vvc/img/003-hospital-bed.png" class="img-responsive" width="60px" height="60px">
+                <br/>
+                <h2 class="text-primary">No Queue for Appointments</h2>
+                <p class="lead">With ease all appointments is met!</p>
+                <p>Get hassle free and quick appointment with an online doctor now and get consult for your pressing health concerns.</p>
+                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+              </div>
+              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                <img src="https://cdn.thevibesclinic.com/vvc/img/004-stethoscope.png" class="img-responsive" width="60px" height="60px">
+                <br/>
+                <h2 class="text-primary">Get a Subscription Plan</h2>
+                <p class="lead">Do a One-Off Payment or You can also</p>
+                <p>Buy one of our subscription plan and get unlimited FREE queries.</p>
+                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">Our Doctors</h2>
+            <p class="mb-0 lead">All doctors on our platform has gone through a stringent verification process</p>
+          </div>
+        </div>
+        <div class="row element-animate">
+          <div class="major-caousel js-carousel-1 owl-carousel">
+            <div>
+              <div class="media d-block media-custom text-center">
+                <div class="media-body">
+                  <h3 class="mt-0 text-black">Dr. Ezenwa</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p>
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-center">
+                <div class="media-body">
+                  <h3 class="mt-0 text-black">Dr. Janice Doe</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p>
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-center">
+                <div class="media-body">
+                  <h3 class="mt-0 text-black">Dr. Carl Smith</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p>
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END slider -->
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="cover_1" style="background-image: url(https://cdn.thevibesclinic.com/vvc/img/bg_1.jpg);">
+      <div class="container">
+        <div class="row text-center justify-content-center">
+          <div class="col-md-10">
+            <h2 class="heading element-animate">Experience Our Advance Offers</h2>
+            <p class="sub-heading element-animate mb-5">Get Lab Reports, Medical Information, Consultations &amp; Lots More..</p>
+            <p class="element-animate"><a href="#" class="btn btn-primary btn-lg">Get Started Now</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">News &amp; Events</h2>
+            <p class="mb-0 lead">Get Medical Updates From Us &amp; Tips</p>
+          </div>
+        </div>
+        <div class="row element-animate">
+          <div class="major-caousel js-carousel-2 owl-carousel">
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 8</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 2</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 5</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 7</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 1</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 4</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 12</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Read more</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 14</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- END slider -->
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+{% endblock content %}

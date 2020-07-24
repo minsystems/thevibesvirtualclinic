@@ -1,0 +1,220 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tredes | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" type="text/css" rel="stylesheet">
+  <!-- alert style shit from jQuery -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"> FLEETS, <b>HOMES</b>, MONEY</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="username" placeholder="Username" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-person-booth"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="{% url 'account-url:register' %}" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="https://cdn.tredes.com.ng/plugins/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.tredes.com.ng/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.tredes.com.ng/dist/js/adminlte.min.js"></script>
+
+<script>
+    $( function () {
+        'use strict';
+        $(document).ready(function () {
+            // Initialize data
+            var loginForm = $('.loginForm');
+            var loginFormMethod = loginForm.attr('method');
+            var loginFormEndpoint = loginForm.attr('action');
+
+            function displaySubmitting(submitBtn, defaultText, doSubmit) {
+                if (doSubmit) {
+                    submitBtn.addClass("disabled");
+                    submitBtn.html("<i class='fa fa-spin fa-spinner'></i> Sending Data..");
+                } else {
+                    submitBtn.removeClass("disabled");
+                    submitBtn.add(defaultText);
+                }
+            }
+
+            var loginFormSubmitBtn = loginForm.find("[type='submit']");
+            var loginFormSubmitBtnText = loginFormSubmitBtn.text();
+
+            loginForm.submit(function (event) {
+                event.preventDefault();
+                // using jQuery
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                var csrftoken = getCookie('csrftoken');
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+
+                var loginFormData = {
+                    "username": $('#username').val(),
+                    "password": $('#password').val(),
+                };
+                console.log(loginFormData);
+                var thisForm = $(this);
+
+                displaySubmitting(loginFormSubmitBtn, "", true);
+
+                $.ajax({
+                        method: loginFormMethod,
+                        url: loginFormEndpoint,
+                        data: loginFormData,
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+
+                        success: function (data) {
+                            loginForm[0].reset();
+                            console.log(data);
+                            // perform ajax call to view server
+                            $.ajax({
+                                method: "POST",
+                                url: "{% url 'account-url:login' %}",
+                                data: data,
+                                contentType: 'application/x-www-form-urlencoded',
+                                dataType: 'json',
+
+                                success: function (data) {
+                                    console.log(data);
+                                    $.alert({
+                                        title: 'Success!',
+                                        content: 'Logged In Successfully!',
+                                        theme: 'modern',
+                                    });
+                                    setTimeout(function(){
+                                        displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
+                                    }, 500);
+                                    setTimeout(function () {
+                                        window.location.replace("{% url 'dashboard' %}");
+                                    }, 5000);
+                                }
+                            });
+                        }, error: function (error) {
+                            console.log(error);
+                            // var errorData = error.responseJSON('detail');
+                            loginForm[0].reset();
+                            $.alert({
+                                icon: 'fa fa-warning',
+                                title: 'Oops!',
+                                content: "Error During Sign In!",
+                                theme: 'white',
+                                backgroundDismiss: true,
+                                animationSpeed: 2000,
+                            });
+                            displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false);
+                        }
+                    })
+            })
+        })
+    } (jQuery));
+</script>
+
+<!--Start of Tawk.to Script-->
+<!--<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5e1b99507e39ea1242a443f1/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>-->
+<!--End of Tawk.to Script-->
+
+</body>
+</html>

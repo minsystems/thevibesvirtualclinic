@@ -1,0 +1,422 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tredes | Registration Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdn.tredes.com.ng/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="https://cdn.tredes.com.ng/plugins/toastr/toastr.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- jQuery Date Picker UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="/"> FLEETS, <b>HOMES</b>, MONEY</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">TREDES FLEETS Passenger Service</p>
+
+      <form class="registerForm" action="{% url 'api-auth:register-api' %}" method="POST"> {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="first_name" placeholder="First name" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="last_name" placeholder="Last name" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="username" placeholder="Username" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="phone" placeholder="Phone: +23480XXXXXXXX" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" id="email" placeholder="Email" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Retype password" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" id="registerButton" class="btn btn-primary btn-block">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <a href="{% url 'account-url:login' %}" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="https://cdn.tredes.com.ng/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="https://cdn.tredes.com.ng/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.tredes.com.ng/dist/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.tredes.com.ng/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="https://cdn.tredes.com.ng/plugins/toastr/toastr.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="https://cdn.tredes.com.ng/dist/js/demo.js"></script>
+
+  <script type="text/javascript">
+      $(function() {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+
+        $('.swalDefaultSuccess').click(function() {
+          Toast.fire({
+            type: 'success',
+            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.swalDefaultInfo').click(function() {
+          Toast.fire({
+            type: 'info',
+            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.swalDefaultError').click(function() {
+          Toast.fire({
+            type: 'error',
+            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.swalDefaultWarning').click(function() {
+          Toast.fire({
+            type: 'warning',
+            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.swalDefaultQuestion').click(function() {
+          Toast.fire({
+            type: 'question',
+            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+
+        $('.toastrDefaultSuccess').click(function() {
+          toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+        });
+        $('.toastrDefaultInfo').click(function() {
+          toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+        });
+        $('.toastrDefaultError').click(function() {
+          toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+        });
+        $('.toastrDefaultWarning').click(function() {
+          toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+        });
+
+        $('.toastsDefaultDefault').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultTopLeft').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            position: 'topLeft',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultBottomRight').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            position: 'bottomRight',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultBottomLeft').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            position: 'bottomLeft',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultAutohide').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            autohide: true,
+            delay: 750,
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultNotFixed').click(function() {
+          $(document).Toasts('create', {
+            title: 'Toast Title',
+            fixed: false,
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultFull').click(function() {
+          $(document).Toasts('create', {
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            icon: 'fas fa-envelope fa-lg',
+          })
+        });
+        $('.toastsDefaultFullImage').click(function() {
+          $(document).Toasts('create', {
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            image: '../../dist/img/user3-128x128.jpg',
+            imageAlt: 'User Picture',
+          })
+        });
+        $('.toastsDefaultSuccess').click(function() {
+          $(document).Toasts('create', {
+            class: 'bg-success',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultInfo').click(function() {
+          $(document).Toasts('create', {
+            class: 'bg-info',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultWarning').click(function() {
+          $(document).Toasts('create', {
+            class: 'bg-warning',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultDanger').click(function() {
+          $(document).Toasts('create', {
+            class: 'bg-danger',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+        $('.toastsDefaultMaroon').click(function() {
+          $(document).Toasts('create', {
+            class: 'bg-maroon',
+            title: 'Toast Title',
+            subtitle: 'Subtitle',
+            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+          })
+        });
+      });
+
+    </script>
+
+  <script>
+    $( function() {
+        'use strict';
+        // $("#age").datepicker();
+
+        $(document).ready(function () {
+            // Initialize form data
+            var registerForm = $(".registerForm");
+            var registerFormMethod = registerForm.attr("method");
+            var registerFormEnpoint = registerForm.attr("action");
+            
+            function displaySubmitting(submitBtn, defaultText, doSubmit) {
+                if (doSubmit) {
+                    submitBtn.addClass("disabled");
+                    submitBtn.html("<i class='fa fa-spin fa-spinner'></i> Sending Data..");
+                } else {
+                    submitBtn.removeClass("disabled");
+                    submitBtn.add(defaultText);
+                }
+            }
+
+            function handleButton(submitBtn, doSubmit) {
+                if (doSubmit){
+                    submitBtn.addClass("disabled");
+                } else {
+                    submitBtn.removeClass("disabled");
+                }
+            }
+
+            var registerFormSubmitBtn = registerForm.find("[type='submit']");
+            var registerFormSubmitBtnText = registerFormSubmitBtn.text();
+
+            // disable button on page-load
+            handleButton(registerFormSubmitBtn, true);
+
+            var checker = document.getElementById('agreeTerms');
+            checker.onchange = function(){
+                if (this.checked){
+                    // perform our custom action here
+                    handleButton(registerFormSubmitBtn, false); // activates button onCheck!
+                    registerForm.submit(function (event) {
+                        event.preventDefault();
+
+                        // using jQuery
+                        function getCookie(name) {
+                            var cookieValue = null;
+                            if (document.cookie && document.cookie !== '') {
+                                var cookies = document.cookie.split(';');
+                                for (var i = 0; i < cookies.length; i++) {
+                                    var cookie = jQuery.trim(cookies[i]);
+                                    // Does this cookie string begin with the name we want?
+                                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                            }
+                            return cookieValue;
+                        }
+                        var csrftoken = getCookie('csrftoken');
+
+                        function csrfSafeMethod(method) {
+                            // these HTTP methods do not require CSRF protection
+                            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                        }
+                        $.ajaxSetup({
+                            beforeSend: function(xhr, settings) {
+                                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                                }
+                            }
+                        });
+
+                        // var registerFormData = registerForm.serialize(); // do not serialize the data, drf would do that
+                        var registerFormData = {
+                            "username": $('#username').val(),
+                            "first_name": $('#first_name').val(),
+                            "last_name": $('#last_name').val(),
+                            "phone": $('#phone').val(),
+                            "email": $('#email').val(),
+                            "password": $('#password').val(),
+                            "confirm_password": $('#confirm_password').val(),
+                        };
+                        var thisForm = $(this);
+
+                        displaySubmitting(registerFormSubmitBtn, "", true);
+
+                        $.ajax({
+                        method: registerFormMethod,
+                        url: registerFormEnpoint,
+                        data: registerFormData,
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+
+                        success: function (data) {
+                            registerForm[0].reset();
+                            console.log(data);
+                            toastr.success('Registration for '+data+' was successful');
+                            setTimeout(function(){
+                                displaySubmitting(registerFormSubmitBtn, registerFormSubmitBtnText, false)
+                            }, 5000)
+                        }, error: function (error) {
+                            console.log(error);
+                            toastr.error(error);
+                        }
+                    })
+
+                    })
+                } else {
+                    handleButton(registerFormSubmitBtn, true);
+                }
+            }
+        })
+    } (jQuery));
+  </script>
+
+  <!--Start of Tawk.to Script-->
+    <!--<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5e1b99507e39ea1242a443f1/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>-->
+    <!--End of Tawk.to Script-->
+
+</body>
+</html>

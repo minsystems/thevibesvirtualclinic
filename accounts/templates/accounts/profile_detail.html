@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block title %} {{ object }} {% endblock title %}
+
+{% block content %}
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+              <li class="breadcrumb-item active">{{ object.get_name }}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="{{ object.get_image }}"
+                       alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center">{{ object.get_name }}</h3>
+
+                <p class="text-muted text-center">{{ object.get_firebase_id }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Phone</b> <a class="float-right">{{ object.phone }}</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>Update My Profile</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">About Me</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Biography</strong>
+
+                <p class="text-muted">
+                  {% if object.bio %} {{ object.bio }} {% else %} Update Your Profile {% endif %}
+                </p>
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Information Box</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">My Bookings</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update My Profile</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="activity">
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Shared publicly - 7:30 PM today</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore the hate as they create awesome
+                        tools to help create filler text for everyone from bacon lovers
+                        to Charlie Sheen fans.
+                      </p>
+
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="timeline">
+                    <!-- The timeline -->
+                    <div class="timeline timeline-inverse">
+                      {% for user_booking in user_bookings %}
+                      <!-- timeline time label -->
+                      <div class="time-label">
+                        <span class="bg-danger">
+                          {{ user_booking.timestamp|naturaltime }}
+                        </span>
+                      </div>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <div>
+                        <i class="fas fa-book bg-primary"></i>
+
+                        <div class="timeline-item">
+                          <span class="time"><i class="far fa-clock"></i> {{ user_booking.updated|naturaltime }}</span>
+
+                          <h3 class="timeline-header">
+                              <a href="#editTicket">Ticket Bought From</a> {{ user_booking.trip.bus.company_alias }}
+                          </h3>
+
+                          <div class="timeline-body">
+                              <ul>
+                                  <li><strong>TRIP:</strong> {{ user_booking.trip }}</li>
+                                  <li><strong>My BOOKING TOKEN:</strong> {{ user_booking.token }}</li>
+                                  <li><strong>BUS:</strong> {{ user_booking.bus }}</li>
+                                  <li><strong>TRIP FROM:</strong> {{ user_booking.from_location }}</li>
+                                  <li><strong>TRIP TO:</strong> {{ user_booking.to_destination }}</li>
+                              </ul>
+                          </div>
+                          <div class="timeline-footer">
+                            <a href="#" class="btn btn-primary btn-sm {% if user_booking.trip.trip_time <= currentTime %} disabled {% endif %}">
+                                {% if user_booking.trip.trip_time <= currentTime %} Cannot Reprint This Booking {% else %} Print My Ticket {% endif %}
+                            </a>
+                            <a href="#" class="btn btn-danger btn-sm">File A Complaint</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END timeline item -->
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="settings">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    <!-- /.content -->
+    <script src="https://cdn.tredes.com.ng/plugins/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.tredes.com.ng/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="https://cdn.tredes.com.ng/plugins/toastr/toastr.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="https://cdn.tredes.com.ng/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="https://cdn.tredes.com.ng/dist/js/demo.js"></script>
+
+    <script>
+
+        $( function () {
+            $(document).ready(function () {
+
+                {% if messages %}
+                    {% for message in messages %}
+                        $(document).Toasts('create', {
+                            class: {% if message.tags %}'bg-info'{% endif %},
+                            title: {% if message.tags %}'Psst!'{% endif %},
+                            subtitle: 'ATTENTION NEEDED!',
+                            body: {% if message.tags %}'{{ message }}'{% endif %}
+                          });
+                    {% endfor %}
+                {% endif %}
+
+            })
+        } (jQuery))
+
+    </script>
+
+{% endblock content %}
