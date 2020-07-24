@@ -132,4 +132,4 @@ dmypy.json
 .pyre/
 
 # don't track this settings
-tredes/settings/local.py
+thevibesvirtualclinic/settings/local.py
