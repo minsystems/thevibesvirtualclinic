@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/PycharmProjects/geetechlab/.idea/geetechlab.iml" filepath="$USER_HOME$/PycharmProjects/geetechlab/.idea/geetechlab.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" filepath="$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" />
     </modules>
   </component>

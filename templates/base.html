@@ -66,14 +66,14 @@
 
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="doctors.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors</a>
+                <a class="nav-link dropdown-toggle" href="doctors.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown05">
                   <a class="dropdown-item" href="doctors.html">Find Doctors</a>
                   <a class="dropdown-item" href="#">Practitioner</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="news.html">News</a>
+                <a class="nav-link" href="{% url 'articles:article_list' %}">News</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -88,39 +88,55 @@
     </header>
     <!-- END header -->
 
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('https://cdn.thevibesclinic.com/vvc/img/slider-2.jpg');">
-
-        <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 element-animate">
-              <h1>We Care For You</h1>
-              <p>
-                  At An Affordable Cost Be Assured To Get Professional Consultation From Only The Best Medical Practitioners.
-                  All Doctors On Our Platform Has Gone Through A Stringent Verification Process
-              </p>
+{% if request.path == '/' %}
+        <section class="home-slider owl-carousel">
+          <div class="slider-item" style="background-image: url('https://cdn.thevibesclinic.com/vvc/img/slider-2.jpg');">
+            <div class="container">
+              <div class="row slider-text align-items-center">
+                <div class="col-md-7 col-sm-12 element-animate">
+                  <h1>We Care For You</h1>
+                  <p>
+                      At An Affordable Cost Be Assured To Get Professional Consultation From Only The Best Medical Practitioners.
+                      All Doctors On Our Platform Has Gone Through A Stringent Verification Process
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
-
-      <div class="slider-item" style="background-image: url('https://cdn.thevibesclinic.com/vvc/img/slider-1.jpg');">
-        <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 element-animate">
-              <h1 style="color: darkslategray">We Provide Health Care Solutions</h1>
-              <p style="color: darkslategray">
-                  We assure only the very best for you. Get ready to experience a one of a kind healthcare service that comes to you
-                  through cutting edge technology and tools.
-              </p>
+          <div class="slider-item" style="background-image: url('https://cdn.thevibesclinic.com/vvc/img/slider-1.jpg');">
+            <div class="container">
+              <div class="row slider-text align-items-center">
+                <div class="col-md-7 col-sm-12 element-animate">
+                  <h1 style="color: darkslategray">We Provide Health Care Solutions</h1>
+                  <p style="color: darkslategray">
+                      We assure only the very best for you. Get ready to experience a one of a kind healthcare service that comes to you
+                      through cutting edge technology and tools.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
+        </section>
+    {% else %}
+        <section class="home-slider inner-page owl-carousel">
+          <div class="slider-item" style="background-image: url('https://cdn.thevibesclinic.com/vvc/img/slider-2.jpg');">
 
-    </section>
+            <div class="container">
+              <div class="row slider-text align-items-center">
+                <div class="col-md-7 col-sm-12 element-animate">
+                  <h1>{% block header-content %}{% endblock header-content %}</h1>
+                  <p>{% block header-description %}{% endblock header-description %}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+        <!-- END slider -->
+    {% endif %}
     <!-- END slider -->
 
     {% block content %}

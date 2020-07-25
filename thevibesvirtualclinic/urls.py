@@ -23,8 +23,10 @@ from thevibesvirtualclinic.views import DashboardView
 
 urlpatterns = [
     path('', DashboardView.as_view(), name='dashboard'),
+    path('ckeditor/', include("ckeditor_uploader.urls")),
     path('account/', include(('accounts.urls', 'account-url'), namespace='account-url')),
     path('api/auth/', include(('accounts.api.urls', 'api-auth'), namespace='api-auth')),
+    path('articles/', include(('articles.urls', 'articles'), namespace='articles')),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:

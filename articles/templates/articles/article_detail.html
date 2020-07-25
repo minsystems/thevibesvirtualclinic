@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} {{ article.slug }} {% endblock title %}
+
+{% block header-content %}
+   {{ article.title  }}
+{% endblock header-content %}
+
+{% block header-description %}
+    {{ article.description|safe|linebreaks }}
+{% endblock header-description %}
+
+{% block content %}
+
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center element-animate">
+          <div class="col-md-8">
+              <div class="media d-block media-custom text-center">
+                <img src="{{ article.image_url }}" alt="{{ article.title }}" class="img-fluid">
+              </div>
+          </div>
+        </div>
+        <br>
+        <br>
+            <hr>
+        <br>
+        <br>
+        <div class="row justify-content-center element-animate">
+          <div class="col-md-8">
+                <h3 class="mt-0 text-black">Written by -- {{ article.author }}</h3>
+              {% if  article.author.bio %}
+                <p>{{ article.author.bio|safe|linebreaks }}</p>
+              {% else %}
+                <p>{{ article.author }} is yet to tell us about thy self...</p>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">{{ article.title }}</h2>
+            <p class="mb-0 lead">{{ article.description|safe|linebreaks }}</p>
+              <br>
+            <p>{{ article.body|safe|linebreaks }}</p>
+            <hr>
+              <span class="mb-0 text-left">Time of creation -- {{ article.created|naturaltime }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+{% endblock %}

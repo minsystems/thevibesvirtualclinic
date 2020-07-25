@@ -1,0 +1,16 @@
+    <section class="home-slider inner-page owl-carousel">
+      <div class="slider-item" style="background-image: url('{{ article.image_url }}');">
+
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 element-animate">
+              <h1 class="text-black">{{ article.title }}</h1>
+              <p  class="text-black">{{ article.description|safe|linebreaks }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- END slider -->

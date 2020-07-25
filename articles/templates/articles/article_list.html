@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} Articles {% endblock title %}
+
+{% block header-content %}
+    Our blog section
+{% endblock header-content %}
+
+{% block header-description %}
+    This is a test general description goes here later...
+{% endblock header-description %}
+
+{% block content %}
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row">
+            {% for article in articles %}
+            <div class="col-md-4 element-animate">
+                <div class="media d-block media-custom text-left">
+                  <img src="{{ article.image_url }}" alt="{{article.slug}}" class="img-fluid">
+                  <div class="media-body">
+                    <span class="meta-post">{{ article.created|naturaltime }}</span>
+                    <h3 class="mt-0 text-black"><a href="{% url 'articles:article_detail' slug=article.slug %}" class="text-black">{{ article.title }}</a></h3>
+                    <p>{{ article.description|safe|truncatewords:7|linebreaks }}</p>
+                    <p class="clearfix">
+                      <a href="{% url 'articles:article_detail' slug=article.slug %}" class="float-left">Read more</a>
+                      <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span>{{ article.view_count }}</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+                {% if forloop.counter|divisibleby:"3" %}
+                    </div><!-- row -->
+
+                    <div class="row">
+                {% endif %}
+            {% empty %}
+                <p>No article yet please visit more often for available atricles</p>
+                <br>
+            {% endfor %}
+            </div><!-- row -->
+            {% include 'includes/pagination.html' %}
+        </div>
+
+
+    </section>
+
+
+
+
+{% endblock %}

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 's*75=%l=$8v&g2a#_1-do*(=a#%f0dv#zt*^i5%8lbiu#eq3r1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     'accounts',
+    'articles',
+
 
     # third party apps
     'phonenumber_field',
@@ -48,7 +50,20 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'debug_toolbar',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height': 200,
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Link', 'Unlink', 'RemoveFormat'],
+        ]
+    }
+}
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
