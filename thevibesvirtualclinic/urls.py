@@ -23,6 +23,8 @@ from thevibesvirtualclinic.views import DashboardView
 
 urlpatterns = [
     path('', DashboardView.as_view(), name='dashboard'),
+    path('page-not-found/', TemplateView.as_view(template_name='404_.html'), name='404_'),
+    path('services/', include(('services.urls', 'consultations-url'), namespace='consultations-url')),
     path('account/', include(('accounts.urls', 'account-url'), namespace='account-url')),
     path('api/auth/', include(('accounts.api.urls', 'api-auth'), namespace='api-auth')),
     path('admin/', admin.site.urls),
