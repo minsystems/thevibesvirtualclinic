@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     'accounts',
+    'services',
+    'doctors',
+    'bookings',
 
     # third party apps
     'phonenumber_field',

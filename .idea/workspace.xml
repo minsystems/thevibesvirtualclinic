@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fe2119-63bb-4bd0-8136-f43037b584b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/services/templates/services/services_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/cloudinary_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/cloudinary_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +27,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="164" selection-start-line="164" selection-end-line="172" selection-end-column="25" />
+            <state relative-caret-position="61">
+              <caret line="33" selection-start-line="33" selection-end-line="53" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -131,18 +133,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-              <folding>
-                <element signature="e#646#678#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -188,7 +178,6 @@
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/thevibesvirtualclinic/views.py" />
         <option value="$PROJECT_DIR$/templates/includes/home-care.html" />
-        <option value="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/register.html" />
@@ -204,6 +193,7 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/services/templates/services/services_list.html" />
         <option value="$PROJECT_DIR$/thevibesvirtualclinic/cloudinary_settings.py" />
+        <option value="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" />
       </list>
     </option>
   </component>
@@ -367,12 +357,12 @@
       <workItem from="1595399265877" duration="7745000" />
       <workItem from="1595415241326" duration="1128000" />
       <workItem from="1595524700598" duration="17955000" />
-      <workItem from="1595589165121" duration="16459000" />
+      <workItem from="1595589165121" duration="18014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45761000" />
+    <option name="totallyTimeSpent" value="47316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -591,13 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -743,8 +726,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="164" selection-start-line="164" selection-end-line="172" selection-end-column="25" />
+        <state relative-caret-position="61">
+          <caret line="33" selection-start-line="33" selection-end-line="53" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
         </state>
       </provider>
     </entry>
