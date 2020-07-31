@@ -155,45 +155,20 @@
         </div>
         <div class="row element-animate">
           <div class="major-caousel js-carousel-1 owl-carousel">
-            <div>
-              <div class="media d-block media-custom text-center">
-                <div class="media-body">
-                  <h3 class="mt-0 text-black">Dr. Beatrice Ezenwa</h3>
-                  <p>Consultant Paediatrician</p>
-                  <p>
-                    <a href="#" class="p-2"><span class="fab fa-facebook-f"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-twitter"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-linkedin"></span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-center">
-                <div class="media-body">
-                  <h3 class="mt-0 text-black">Dr. Viola Ikebudu</h3>
-                  <p>Specialist Physician</p>
-                  <p>
-                    <a href="#" class="p-2"><span class="fab fa-facebook-f"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-twitter"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-linkedin"></span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-center">
-                <div class="media-body">
-                  <h3 class="mt-0 text-black">Dr. Ezeoma Ifeoma</h3>
-                  <p>Specialist Paediatrician</p>
-                  <p>
-                    <a href="#" class="p-2"><span class="fab fa-facebook-f"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-twitter"></span></a>
-                    <a href="#" class="p-2"><span class="fab fa-linkedin"></span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
+              {% for speciality_obj in speciality %}
+                  <div>
+                      <div class="media d-block media-custom text-center">
+                        <div class="media-body">
+                          <h3 class="mt-0 text-black">{{ speciality_obj.name }}</h3>
+                          <p><a href="" class="btn btn-primary"> NGN {{ speciality_obj.price }} </a></p>
+                        </div>
+                      </div>
+                  </div>
+              {% empty %}
+                  <div class="mb-0 text-center">
+                    <p class="">We are loading up our content for you!</p>
+                  </div>
+              {% endfor %}
           </div>
           <!-- END slider -->
         </div>
@@ -224,120 +199,40 @@
         </div>
         <div class="row element-animate">
           <div class="major-caousel js-carousel-2 owl-carousel">
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 8</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 2</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 5</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 7</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+              {% for post_obj in post %}
 
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 1</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 4</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 12</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="media d-block media-custom text-left">
-                <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
-                <div class="media-body">
-                  <span class="meta-post">December 2, 2017</span>
-                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p class="clearfix">
-                    <a href="#" class="float-left">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 14</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+                  <div>
+                      <div class="media d-block media-custom text-left">
+                        <img src="{{ post_obj.image_link }}" alt="Image Placeholder" class="img-fluid">
+                        <div class="media-body">
+                          <span class="meta-post">{{ post_obj.timestamp|timesince }}</span>
+                          <h3 class="mt-0 text-black text-capitalize"><a href="#" class="text-black">{{ post_obj.name }}</a></h3>
+                          <p>{{ post_obj.description|truncatechars:300 }}</p>
+                          <p class="clearfix">
+                            <a href="#" class="float-left">Read more</a>
+                            <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 8</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
+                  <div>
+                      <div class="media d-block media-custom text-left">
+                        <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
+                        <div class="media-body">
+                          <span class="meta-post">December 2, 2017</span>
+                          <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                          <p class="clearfix">
+                            <a href="#" class="float-left">Read more</a>
+                            <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 14</a>
+                          </p>
+                        </div>
+                      </div>
+                  </div>
+              {% empty %}
+                  <div>Get Ready For Our daily tips</div>
+              {% endfor %}
           </div>
           <!-- END slider -->
         </div>

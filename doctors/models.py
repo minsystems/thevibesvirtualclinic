@@ -149,3 +149,17 @@ class Doctors(models.Model):
     image_tag.short_description = 'Doctors Image'
     image_tag.allow_tags = True
 
+
+class Speciality(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    price = models.CharField(max_length=255, blank=True, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "speciality"
+        verbose_name = "speciality"
+        verbose_name_plural = "speciality"
+
+    def __str__(self):
+        return self.name
