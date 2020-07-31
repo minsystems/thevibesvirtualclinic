@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fe2119-63bb-4bd0-8136-f43037b584b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/doctors/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="791">
-              <caret line="146" column="49" lean-forward="true" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
+            <state relative-caret-position="215">
+              <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -93,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doctors/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
@@ -193,7 +192,6 @@
         <option value="$PROJECT_DIR$/services/urls.py" />
         <option value="$PROJECT_DIR$/services/templates/services/services_list.html" />
         <option value="$PROJECT_DIR$/thevibesvirtualclinic/cloudinary_settings.py" />
-        <option value="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/doctors/models.py" />
         <option value="$PROJECT_DIR$/services/models.py" />
@@ -201,6 +199,7 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/services/admin.py" />
         <option value="$PROJECT_DIR$/doctors/admin.py" />
+        <option value="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" />
       </list>
     </option>
   </component>
@@ -324,18 +323,18 @@
       <workItem from="1595415241326" duration="1128000" />
       <workItem from="1595524700598" duration="17955000" />
       <workItem from="1595589165121" duration="20446000" />
-      <workItem from="1596180360688" duration="3857000" />
+      <workItem from="1596180360688" duration="4611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53605000" />
+    <option name="totallyTimeSpent" value="54359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21331316" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21331316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -637,13 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="146" column="49" lean-forward="true" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -718,6 +710,13 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -105,8 +105,12 @@ WSGI_APPLICATION = 'thevibesvirtualclinic.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5d4a4bg867a4s',
+        'USER': 'tsckfpmfsibgjp',
+        'PASSWORD': '5018a88399a54c4cc46f9896a2c1dc935ad38fb6639e537bba3a2535fa70179b',
+        'HOST': 'ec2-50-19-26-235.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
