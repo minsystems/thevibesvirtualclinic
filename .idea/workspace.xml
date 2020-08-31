@@ -10,49 +10,13 @@
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/notes/api/urls.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/notes/api/views.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/routing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/client_age_filter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/templates/articles/article_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/templates/articles/article_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/templates/articles/news.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/articles/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctors/migrations/0003_speciality_image_url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctors/migrations/0004_speciality_description.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctors/templates/doctors/doctor_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctors/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/404_.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tests.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/local.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+            <state relative-caret-position="496">
+              <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
               <folding>
                 <element signature="e#646#678#0" expanded="true" />
               </folding>
@@ -91,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doctors/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="165" column="23" lean-forward="true" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="23" />
+            <state relative-caret-position="2464">
+              <caret line="165" column="23" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -112,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="83" column="85" lean-forward="true" selection-start-line="83" selection-start-column="85" selection-end-line="83" selection-end-column="85" />
+            <state relative-caret-position="151">
+              <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -311,18 +275,18 @@
       <workItem from="1596180360688" duration="9660000" />
       <workItem from="1596549294747" duration="52000" />
       <workItem from="1598461526626" duration="22268000" />
-      <workItem from="1598861126038" duration="19403000" />
+      <workItem from="1598861126038" duration="19848000" />
+      <workItem from="1598894997679" duration="1555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101131000" />
+    <option name="totallyTimeSpent" value="103131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17019667" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17246597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -669,13 +633,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/404_html.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404_html.html" />
     <entry file="file://$PROJECT_DIR$/doctors/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -751,6 +709,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding>
+            <element signature="e#646#678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctors/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2464">
+          <caret line="165" column="23" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/doctors/templates/doctors/doctor_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -758,30 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctors/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="165" column="23" lean-forward="true" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-          <folding>
-            <element signature="e#646#678#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="83" column="85" lean-forward="true" selection-start-line="83" selection-start-column="85" selection-end-line="83" selection-end-column="85" />
+        <state relative-caret-position="151">
+          <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
         </state>
       </provider>
     </entry>
