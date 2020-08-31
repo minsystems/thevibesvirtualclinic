@@ -67,6 +67,7 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('account-url:profile', kwargs={'slug': self.slug})
 
+    @property
     def age(self):
         import datetime
         return int((datetime.date.today() - self.birthday).days / 365.25)
@@ -140,8 +141,8 @@ class NextOfKin(models.Model):
 
     class Meta:
         db_table = "NextOfKin"
-        verbose_name = "NextOfKin"
-        verbose_name_plural = "NextOfKin"
+        verbose_name = "Informant"
+        verbose_name_plural = "Informant"
         unique_together = ('phone',)
 
     def __str__(self):

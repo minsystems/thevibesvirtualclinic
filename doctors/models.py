@@ -152,6 +152,8 @@ class Doctors(models.Model):
 
 class Speciality(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)
+    description = models.CharField(max_length=225, blank=True, null=True)
     price = models.CharField(max_length=255, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -160,6 +162,11 @@ class Speciality(models.Model):
         db_table = "speciality"
         verbose_name = "speciality"
         verbose_name_plural = "speciality"
+
+    def check_image_url(self):
+        if self.image_url:
+            return self.image_url
+        return "https://res.cloudinary.com/geetechlab-com/image/upload/v1598875956/vibes_clinic/thevibesclinic1_oin5ql.jpg"
 
     def __str__(self):
         return self.name

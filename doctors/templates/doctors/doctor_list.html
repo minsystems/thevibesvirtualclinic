@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}specialties{% endblock %}
+
+
+{% block header-content %}
+    Our Services
+{% endblock header-content %}
+
+{% block header-description %}
+    This is a test general description goes here later...
+{% endblock header-description %}
+
+
+{% block content %}
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row">
+        {% for specialty in specialties %}
+          <div class="col-md-3 element-animate">
+            <div class="media d-block media-custom text-center">
+              <img src="{{ specialty.check_image_url }}" alt="{{ specialty.name }}" class="img-fluid">
+              <div class="media-body text-center">
+                  {% if request.user.is_authenticated %}
+                    <h3 class="mt-0 text-black">N {{ specialty.price }}</h3>
+                  {% else %}
+                      <h3>Please <a href="{% url '' %}">login</a> to access this service</h3>
+                  {% endif %}
+                <p>{{ specialty.description }}</p>
+               {% if request.user.is_authenticated %}
+                <p>
+                  <form>
+                      <script src="https://js.paystack.co/v1/inline.js"></script>
+                      <button class="btn btn-primary btn-sm" type="button" onclick="payWithPaystack()">Make Payment For Consultation</button>
+                  </form>
+                  <script>
+                      function payWithPaystack(){
+                        let fee = parseInt({{ specialty.price|safe }});
+                        let finalFee = 100 * fee;
+                        var handler = PaystackPop.setup({
+                          key: 'pk_live_62ad848d9d919a21a100dd6fef0bf6c457a70683',
+                          email: '{{ request.user.email|safe }}',
+                          amount: finalFee,
+                          ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                          metadata: {
+                             custom_fields: [
+                                {
+                                    display_name: "{{ request.user|safe }}",
+                                    variable_name: "{{ request.user|safe }}",
+                                    value: "+2348160527819"
+                                }
+                             ]
+                          },
+                          callback: function(response){
+                              alert('success. transaction ref is ' + response.reference);
+                          },
+                          onClose: function(){
+                              alert('window closed');
+                          }
+                        });
+                        handler.openIframe();
+                      }
+                    </script>
+                </p>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        {% if forloop.counter|divisibleby:4 %}
+        </div>
+
+        <div class="row mb-5">
+        {% endif %}
+        {% endfor %}
+        </div>
+
+{#        <div class="row element-animate">#}
+{#          <div class="col-md-5">#}
+{#            <nav aria-label="Page navigation example">#}
+{#              <ul class="pagination">#}
+{#                <li class="page-item"><a class="page-link" href="#">Previous</a></li>#}
+{#                <li class="page-item active"><a class="page-link" href="#">1</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">2</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">4</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">5</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">Next</a></li>#}
+{#              </ul>#}
+{#            </nav>#}
+{#          </div>#}
+{#        </div>#}
+
+      </div>
+    </section>
+{% endblock %}

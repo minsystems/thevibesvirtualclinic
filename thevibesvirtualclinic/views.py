@@ -7,13 +7,15 @@ from django.views.generic.base import View
 # from trips.models import Trips, BusPark
 from doctors.models import Speciality
 from services.models import Post
+from articles.models import Article
 
 
 class DashboardView(View):
     def get(self, request, *args, **kwargs):
         speciality = Speciality.objects.all()
         post = Post.objects.all()
-        return render(request, 'index.html', context={"speciality":speciality, "post":post})
+        daily_articles = Article.objects.all()[:4]
+        return render(request, 'index.html', context={"speciality":speciality, "post":post, "daily_articles":daily_articles})
 
 
 # class CompanyAliasList(LoginRequiredMixin, ListView):

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../rdj_noteapp_backend/.idea/rdj_noteapp_backend.iml" filepath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/rdj_noteapp_backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" filepath="$PROJECT_DIR$/.idea/thevibesvirtualclinic.iml" />
     </modules>
   </component>

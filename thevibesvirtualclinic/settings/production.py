@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'services',
     'doctors',
     'bookings',
+    'articles',
 
     # third party apps
     'phonenumber_field',

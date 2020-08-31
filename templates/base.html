@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'dashboard' as home %}
 
 <!doctype html>
 <html lang="en">
@@ -60,9 +61,9 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="#">We Offer</a>
-                  <a class="dropdown-item" href="#">Departments</a>
-                  <a class="dropdown-item" href="#">Pricing</a>
+                  <a class="dropdown-item" href="{% url 'doctors:specialty_list' %}">Our Services</a>
+{#                  <a class="dropdown-item" href="#">Departments</a>#}
+{#                  <a class="dropdown-item" href="#">Pricing</a>#}
                 </div>
 
               </li>
@@ -70,18 +71,19 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown05">
                   <a class="dropdown-item" href="#">Medical Tools</a>
-                  <a class="dropdown-item" href="#">Chat With A Practitioner</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
+                <a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
+                {% if request.user.is_superuser and request.path == home %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="admin@TheVibesVirtualClinic">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://live.thevibesclinic.com">Start Consultation</a>
+                  </li>
+                {% endif %}
             </ul>
           </div>
         </div>
