@@ -78,11 +78,16 @@
               </li>
                 {% if request.user.is_superuser and request.path == home %}
                   <li class="nav-item">
-                    <a class="nav-link" href="admin@TheVibesVirtualClinic">Admin</a>
+                    <a class="nav-link" href="admin@TheVibesVirtualClinic" target="_blank">Admin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="https://live.thevibesclinic.com">Start Consultation</a>
+                    <a class="nav-link" href="https://live.thevibesclinic.com" target="_blank">Start Consultation</a>
                   </li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account-url:logout' %}">logout</a>
+                    </li>
                 {% endif %}
             </ul>
           </div>
@@ -159,19 +164,19 @@
           <div class="col-md-3 mb-5">
             <h3>Services</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="#">Find a doctor</a></li>
-              <li><a href="#">Urgent Care</a></li>
-              <li><a href="#">Emergency Care</a></li>
-              <li><a href="#">Procedures &amp; Treatments</a></li>
-              <li><a href="#">Online Services</a></li>
+              <li><a href="{% url 'doctors:specialty_list' %}">Find a doctor</a></li>
+              <li><a href="{% url 'doctors:specialty_list' %}">Urgent Care</a></li>
+              <li><a href="{% url 'doctors:specialty_list' %}">Emergency Care</a></li>
+              <li><a href="{% url 'doctors:specialty_list' %}">Procedures &amp; Treatments</a></li>
+              <li><a href="{% url 'doctors:specialty_list' %}">Online Services</a></li>
             </ul>
           </div>
           <div class="col-md-3 mb-5">
             <h3>Latest News</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="#">News &amp; Press Releases</a></li>
-              <li><a href="#">Health Care Professional News</a></li>
-              <li><a href="#">Events &amp; Conferences</a></li>
+              <li><a href="{% url 'articles:article_list' %}">News &amp; Press Releases</a></li>
+              <li><a href="{% url 'articles:article_list' %}">Health Care Professional News</a></li>
+              <li><a href="{% url 'articles:article_list' %}">Events &amp; Conferences</a></li>
             </ul>
           </div>
           <div class="col-md-3 mb-5">
@@ -186,14 +191,13 @@
           </div>
           <div class="col-md-3 mb-5">
             <h3>Location &amp; Contact</h3>
-            <p class="mb-5">134 Street Name, City Name Here, United States</p>
+            <p class="mb-5">No 23 royal palm drive, Osborne face2 Ikoyi Lagos, Nigeria</p>
 
             <h4 class="text-uppercase mb-3 h6 text-white">Email</h4>
             <p class="mb-5"><a href="mailto:info@yourdomain.com">medic@thevibesclinic.com</a></p>
 
             <h4 class="text-uppercase mb-3 h6 text-white">Phone</h4>
-            <p>+1 24 435 3533</p>
-
+            <p>+2348160527819</p>
           </div>
         </div>
 
@@ -205,9 +209,9 @@
               <p>&copy; 2020 The Vibes Virtual Clinic. Designed &amp; Developed by <a href="https://www.geetechlab.com/">Geetech Lab</a> &amp; <a href="https://systems.minloans.com.ng.com/">Minsystems</a></p>
           </div>
           <div class="col-md-6 col-sm-12 text-md-right text-sm-left">
-            <a href="#" class="p-2"><span class="fab fa-facebook-f"></span></a>
-            <a href="#" class="p-2"><span class="fab fa-twitter"></span></a>
-            <a href="#" class="p-2"><span class="fab fa-linkedin"></span></a>
+            <a href="#" class="p-2"><span class="fab fa-facebook-f"></span>@thevibesclinic</a>
+            <a href="#" class="p-2"><span class="fab fa-twitter"></span>@thevibesclinic</a>
+            <a href="#" class="p-2"><span class="fab fa-linkedin"></span>@thevibesclinic</a>
           </div>
         </div>
       </div>
@@ -228,8 +232,8 @@
           <div class="modal-body">
               <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
                 <div class="form-group">
-                  <label for="appointment_name" class="text-black">Unique Handle</label>
-                  <input type="text" class="form-control" id="username" placeholder="Handle" required="required">
+                  <label for="appointment_name" class="text-black">User Name</label>
+                  <input type="text" class="form-control" id="username" placeholder="username" required="required">
                 </div>
                 <div class="form-group">
                   <label for="appointment_email" class="text-black">Password</label>
@@ -242,7 +246,9 @@
           </div>
 
           <div class="modal-footer">
-              Don't Have An Account? <a href="{% url 'account-url:register' %}"> Sign Up</a>
+              <span>Not registered yet? <a href="{% url 'account-url:register' %}"> Sign Up</a></span>
+              <br>
+              <span>I agree to the <a href="{% url 't_and_c' %}">terms</a></span>
           </div>
 
         </div>
@@ -261,7 +267,6 @@
           <div class="modal-body">
               A room key would be giving to you for virtual consultancy
           </div>
-
         </div>
       </div>
     </div>

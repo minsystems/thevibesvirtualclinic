@@ -11,13 +11,19 @@
     <section class="section stretch-section">
       <div class="container">
         <div class="row justify-content-center mb-5 element-animate">
-          <div class="col-md-8 text-center mb-5">
-            <h2 class="text-uppercase heading border-bottom mb-4">Why Choose Us</h2>
+          <div class="col-md-12 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">More About Us</h2>
             <p class="mb-0 lead">
-                The Vibes Virtual Clinic is a hybrid healthcare services platform integrating the conventional physical
-                and the digital medical services to provide the benefit of convenience and best-in-class services online
-                from the comfort of home.
+                Welcome to The Vibes Virtual Clinic, a one stop tele-health facility built for the modern-day family,
+                young executives and global explorers. We provide a high class solution to all your health challenges while ensuring a
+                friendly and conducive clinical experience. Live the life you were destined for and get quality medical consultation without
+                leaving your comfort zone. No more queuing to see the doctor for you, your children and other family members.
+                The Vibes Virtual Clinic aims to make your clinic experiences enjoyable and worthwhile. With variety of
+                experts at your disposal, you get to enjoy the best clinic experiences, and an opportunity to improve your
+                health while on the go, with no disruption to your usual schedule. Join the ship of the new normal. Register today with
+                The Vibes Virtual Clinic at www.thevibesclinic.com
             </p>
+
           </div>
         </div>
         <div class="row align-items-center">
@@ -145,77 +151,15 @@
     </section>
     <!-- END section -->
 
-    <section class="section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 element-animate">
-          <div class="col-md-8 text-center mb-5">
-            <h2 class="text-uppercase heading border-bottom mb-4">Our Doctors</h2>
-            <p class="mb-0 lead">All doctors on our platform has gone through a stringent verification process</p>
-          </div>
-        </div>
-        <div class="row element-animate">
-          <div class="major-caousel js-carousel-1 owl-carousel">
-              {% for speciality_obj in speciality %}
-                  <div>
-                      <div class="media d-block media-custom text-center">
-                        <div class="media-body">
-                          <h3 class="mt-0 text-black">{{ speciality_obj.name }}</h3>
-                          <p>NGN {{ speciality_obj.price }}</p>
-                        </div>
-                          <p>
-                              <form>
-                                  <script src="https://js.paystack.co/v1/inline.js"></script>
-                                  <button class="btn btn-primary" type="button" onclick="payWithPaystack()"> Make Payment For Consultation </button>
-                              </form>
-                          </p>
-                      </div>
-                  </div>
-                  <script>
-                      function payWithPaystack(){
-                        let fee = parseInt({{ speciality_obj.price|safe }});
-                        let finalFee = 100 * fee;
-                        var handler = PaystackPop.setup({
-                          key: 'pk_live_62ad848d9d919a21a100dd6fef0bf6c457a70683',
-                          email: '{{ request.user.email|safe }}',
-                          amount: finalFee,
-                          ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                          metadata: {
-                             custom_fields: [
-                                {
-                                    display_name: "{{ request.user|safe }}",
-                                    variable_name: "{{ request.user|safe }}",
-                                    value: "+2348160527819"
-                                }
-                             ]
-                          },
-                          callback: function(response){
-                              alert('success. transaction ref is ' + response.reference);
-                          },
-                          onClose: function(){
-                              alert('window closed');
-                          }
-                        });
-                        handler.openIframe();
-                      }
-                    </script>
-              {% empty %}
-                  <div class="mb-0 text-center">
-                    <p class="">We are loading up our content for you!</p>
-                  </div>
-              {% endfor %}
-          </div>
-          <!-- END slider -->
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
     <section class="cover_1" style="background-image: url(https://cdn.thevibesclinic.com/vvc/img/bg_1.jpg);">
       <div class="container">
         <div class="row text-center justify-content-center">
           <div class="col-md-10">
             <h2 class="heading element-animate">Experience Our Advance Offers</h2>
-            <p class="sub-heading element-animate mb-5">Get Lab Reports, Medical Information, Consultations &amp; Lots More..</p>
+            <p class="sub-heading element-animate mb-5">We offer a range of Paediatrics, Adolescents and Adult health care services.
+                The Adolescent/Young Adult friendly portal is especially targeted to reach out to the young ones seeking to
+                have quality care and authentic answers to any of their burning questions from general,
+                sexual and mental health issues to treatment of ailments.</p>
             <p class="element-animate"><a href="{% url 'account-url:register' %}" class="btn btn-primary btn-lg">Get Started Now</a></p>
           </div>
         </div>
