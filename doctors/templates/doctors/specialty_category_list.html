@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}specialties{% endblock %}
+
+
+{% block header-content %}
+    Our Service Category...
+{% endblock header-content %}
+
+{% block header-description %}
+    We offer Varieties of care services for Paediatric, Adolescent and Adult clients.
+{% endblock header-description %}
+
+
+{% block content %}
+
+
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center mb-3 element-animate">
+          <div class="col-md-8 text-center mb-3">
+            <h2 class="text-uppercase heading border-bottom mb-4">Our Available Services</h2>
+            <p class="mb-0 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit
+                quam minima expedita atque corrupti reiciendis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row">
+        {% for speciality_category in speciality_categories %}
+          <div class="col-md-4 element-animate">
+            <div class="media d-block media-custom text-center">
+            <a href="{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}">
+                <img src="{{ speciality_category.check_image_url }}" alt="{{ speciality_category.name }}" class="img-fluid">
+            </a>
+              <div class="media-body">
+                <h3 class="mt-0 text-black">{{ speciality_category.name }}</h3>
+                <p>{{ speciality_category.description|truncatewords:6 }}</p>
+                <p>
+                Number of services : {{ speciality_category.num_of_speciality }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% if forloop.counter|divisibleby:3 %}
+        </div>
+
+        <div class="row mb-5">
+        {% endif %}
+        {% empty %}
+            <div class="row justify-content-center mb-3 element-animate">
+              <div class="col-md-8 text-center mb-3">
+                <h2 class="text-uppercase heading border-bottom mb-4">No Available Services</h2>
+                <p class="mb-0 lead">Hello we currently have no available service please check back later to view available services.</p>
+              </div>
+            </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+
+
+{% endblock %}

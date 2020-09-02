@@ -150,18 +150,45 @@ class Doctors(models.Model):
     image_tag.allow_tags = True
 
 
+class SpecialityCategory(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(unique=True)
+    description = models.CharField(max_length=225, blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Speciality Type"
+        verbose_name_plural = "Speciality Types"
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("speciality_category_detail", args=[self.name])
+
+    def check_image_url(self):
+        if self.image_url:
+            return self.image_url
+        return "https://res.cloudinary.com/geetechlab-com/image/upload/v1598875956/vibes_clinic/thevibesclinic1_oin5ql.jpg"
+
+    @property
+    def num_of_speciality(self):
+        self.speciality_category = SpecialityCategory.objects.first()
+        return self.speciality_set.all().count()
+
+
 class Speciality(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
-    description = models.CharField(max_length=225, blank=True, null=True)
     price = models.CharField(max_length=255, blank=True, null=True)
+    speciality_category = models.ForeignKey(SpecialityCategory, on_delete=models.CASCADE, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "speciality"
         verbose_name = "speciality"
-        verbose_name_plural = "speciality"
+        verbose_name_plural = "specialities"
 
     def check_image_url(self):
         if self.image_url:

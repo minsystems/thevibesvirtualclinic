@@ -34,7 +34,7 @@ urlpatterns = [
 
 # administrator backend service url
 urlpatterns += [
-    path('admin@TheVibesVirtualClinic/', admin.site.urls),
+    path('admin-the-vibes-virtual-clinic/', admin.site.urls),
 ]
 
 #url to catch any unmatch url for 404...

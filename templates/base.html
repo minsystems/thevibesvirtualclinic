@@ -1,5 +1,9 @@
 {% load static %}
+
 {% url 'dashboard' as home %}
+{% url 'doctors:speciality_category_List' as speciality %}
+{% url 'articles:article_list' as article %}
+
 
 <!doctype html>
 <html lang="en">
@@ -56,32 +60,38 @@
           <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="/">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="{% url 'doctors:specialty_list' %}">Our Services</a>
-{#                  <a class="dropdown-item" href="#">Departments</a>#}
-{#                  <a class="dropdown-item" href="#">Pricing</a>#}
-                </div>
-
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="#">Medical Tools</a>
-                </div>
+                {% if request.path == home %}
+                    <a class="nav-link active" href="/">Home</a>
+                {% else %}
+                  <a class="nav-link" href="/">Home</a>
+                {% endif %}
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
+                {% if request.path == speciality %}
+                  <a class="nav-link active" href="{% url 'doctors:speciality_category_List' %}">Services</a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'doctors:speciality_category_List' %}">Services</a>
+                {% endif %}
               </li>
-                {% if request.user.is_superuser and request.path == home %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="admin@TheVibesVirtualClinic" target="_blank">Admin</a>
+
+              <li class="nav-item">
+                {% if request.path == article %}
+                  <a class="nav-link active" href="{% url 'articles:article_list' %}">Articles</a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
+                {% endif %}
+              </li>
+                {% if request.user.is_superuser %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin-Tools</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                      <a class="dropdown-item" href="/admin-the-vibes-virtual-clinic/" target="_blank">Admin Dashboard</a>
+                      <a class="dropdown-item" href="https://dashboard.paystack.com" target="_blank">Payment Dashboard</a>
+                      <a class="dropdown-item" href="https://dashboard.tawk.to" target="_blank">Chat-Admin Dashboard</a>
+                    </div>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="https://live.thevibesclinic.com" target="_blank">Start Consultation</a>
+                    <a class="nav-link" href="https://live.thevibesclinic.com/" target="_blank">Start-Consultation</a>
                   </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
@@ -164,11 +174,11 @@
           <div class="col-md-3 mb-5">
             <h3>Services</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="{% url 'doctors:specialty_list' %}">Find a doctor</a></li>
-              <li><a href="{% url 'doctors:specialty_list' %}">Urgent Care</a></li>
-              <li><a href="{% url 'doctors:specialty_list' %}">Emergency Care</a></li>
-              <li><a href="{% url 'doctors:specialty_list' %}">Procedures &amp; Treatments</a></li>
-              <li><a href="{% url 'doctors:specialty_list' %}">Online Services</a></li>
+              <li><a href="{% url 'doctors:speciality_list' %}">Find a doctor</a></li>
+              <li><a href="{% url 'doctors:speciality_list' %}">Urgent Care</a></li>
+              <li><a href="{% url 'doctors:speciality_list' %}">Emergency Care</a></li>
+              <li><a href="{% url 'doctors:speciality_list' %}">Procedures &amp; Treatments</a></li>
+              <li><a href="{% url 'doctors:speciality_list' %}">Online Services</a></li>
             </ul>
           </div>
           <div class="col-md-3 mb-5">

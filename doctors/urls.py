@@ -4,6 +4,9 @@ from doctors import views
 # from .forms import ArticleForm
 
 urlpatterns = [
-    # path('details/<slug:slug>/', views.ArticleDetail.as_view(), name='article_detail'),
-    path('', views.SpecialtyListView.as_view(), name='specialty_list'),
+    path('all/', views.SpecialityListView.as_view(), name='speciality_list'),
+    path('', views.SpecialityCategoryList.as_view(), name='speciality_category_List'),
+    path('<slug:slug>/', views.SpecialityCategoryDetail.as_view(), name='speciality_category_detail'),
+
 ]
+
