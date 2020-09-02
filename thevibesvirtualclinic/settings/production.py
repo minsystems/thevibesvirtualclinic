@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     'accounts',
+    'services',
+    'doctors',
+    'bookings',
+    'articles',
 
     # third party apps
     'phonenumber_field',
@@ -102,8 +106,12 @@ WSGI_APPLICATION = 'thevibesvirtualclinic.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5d4a4bg867a4s',
+        'USER': 'tsckfpmfsibgjp',
+        'PASSWORD': '5018a88399a54c4cc46f9896a2c1dc935ad38fb6639e537bba3a2535fa70179b',
+        'HOST': 'ec2-50-19-26-235.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -159,12 +167,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media_root")
 
 PROTECTED_ROOT = os.path.join(BASE_DIR, "static", "protected_media")
 
-CORS_REPLACE_HTTPS_REFERER = True
-HOST_SCHEME = "https://"
+CORS_REPLACE_HTTPS_REFERER = False
+HOST_SCHEME = "http://"
 SECURE_PROXY_SSL_HEADER = None
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 SECURE_HSTS_SECONDS = None
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_FRAME_DENY = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_FRAME_DENY = False

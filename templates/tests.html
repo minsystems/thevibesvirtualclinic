@@ -1,0 +1,111 @@
+{% for post_obj in post %}
+      <div>
+          <div class="media d-block media-custom text-left">
+            <img src="{{ post_obj.image_link }}" alt="Image Placeholder" class="img-fluid">
+            <div class="media-body">
+              <span class="meta-post">{{ post_obj.timestamp|timesince }}</span>
+              <h3 class="mt-0 text-black text-capitalize"><a href="#" class="text-black">{{ post_obj.name }}</a></h3>
+              <p>{{ post_obj.description|truncatechars:300 }}</p>
+              <p class="clearfix">
+                <a href="#" class="float-left">Read more</a>
+                <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 8</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      <div>
+          <div class="media d-block media-custom text-left">
+            <img src="img/img_thumb_4.jpg" alt="Image Placeholder" class="img-fluid">
+            <div class="media-body">
+              <span class="meta-post">December 2, 2017</span>
+              <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p class="clearfix">
+                <a href="#" class="float-left">Read more</a>
+                <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 14</a>
+              </p>
+            </div>
+          </div>
+      </div>
+  {% empty %}
+      <div>Get Ready For Our daily tips</div>
+  {% endfor %}
+
+
+
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">Our Doctors</h2>
+            <p class="mb-0 lead">All doctors on our platform has gone through a stringent verification process</p>
+          </div>
+        </div>
+        <div class="row element-animate">
+          <div class="major-caousel js-carousel-1 owl-carousel">
+              {% for speciality_obj in speciality %}
+                  <div>
+                      <div class="media d-block media-custom text-center">
+                        <div class="media-body">
+                          <h3 class="mt-0 text-black">{{ speciality_obj.name }}</h3>
+                          <p>NGN {{ speciality_obj.price }}</p>
+                        </div>
+                          <p>
+                              <form>
+                                  <script src="https://js.paystack.co/v1/inline.js"></script>
+                                  <button class="btn btn-primary" type="button" onclick="payWithPaystack()"> Make Payment For Consultation </button>
+                              </form>
+                          </p>
+                      </div>
+                  </div>
+                  <script>
+                      function payWithPaystack(){
+                        let fee = parseInt({{ speciality_obj.price|safe }});
+                        let finalFee = 100 * fee;
+                        var handler = PaystackPop.setup({
+                          key: 'pk_live_62ad848d9d919a21a100dd6fef0bf6c457a70683',
+                          email: '{{ request.user.email|safe }}',
+                          amount: finalFee,
+                          ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                          metadata: {
+                             custom_fields: [
+                                {
+                                    display_name: "{{ request.user|safe }}",
+                                    variable_name: "{{ request.user|safe }}",
+                                    value: "+2348160527819"
+                                }
+                             ]
+                          },
+                          callback: function(response){
+                              alert('success. transaction ref is ' + response.reference);
+                          },
+                          onClose: function(){
+                              alert('window closed');
+                          }
+                        });
+                        handler.openIframe();
+                      }
+                    </script>
+              {% empty %}
+                  <div class="mb-0 text-center">
+                    <p class="">We are loading up our content for you!</p>
+                  </div>
+              {% endfor %}
+          </div>
+          <!-- END slider -->
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+
+<h2 class="text-uppercase heading border-bottom mb-4"></h2>
+            <p class="mb-0 lead"></p>
+
+
+
+
+

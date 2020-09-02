@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from accounts.client_age_filter import ClientAgeListFilter
 from .models import Profile, NextOfKin
 
 
@@ -8,7 +10,7 @@ from .models import Profile, NextOfKin
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'uuid', 'phone', 'slug', 'updated')
     list_display_links = ('user',)
-    list_filter = ('user', 'uuid', 'phone')
+    list_filter = ('user', 'uuid', 'phone', 'timestamp', ClientAgeListFilter)
     readonly_fields = ('slug', 'image_tag')
     search_fields = ('uuid', 'user')
 
