@@ -81,10 +81,25 @@
                   <a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
                 {% endif %}
               </li>
+
+              {% if request.user.is_authenticated %}
+
+              {% else %}
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account-url:register' %}">Register</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account-url:login' %}">Login</a>
+                  </li>
+              {% endif %}
+
                 {% if request.user.is_superuser %}
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin-Tools</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                    <div class="dropdown-menu" aria-labelledby="dropdown05">{% url 'account-url:register' %}
+
                       <a class="dropdown-item" href="/admin-the-vibes-virtual-clinic/" target="_blank">Admin Dashboard</a>
                       <a class="dropdown-item" href="https://dashboard.paystack.com" target="_blank">Payment Dashboard</a>
                       <a class="dropdown-item" href="https://dashboard.tawk.to" target="_blank">Chat-Admin Dashboard</a>
