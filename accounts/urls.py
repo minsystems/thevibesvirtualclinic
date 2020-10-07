@@ -12,6 +12,7 @@ Including another URLconf
 from django.conf import settings
 from django.contrib.auth.views import LogoutView
 from django.urls import path
+from django.views.generic import TemplateView
 
 from .views import RegisterView, LoginView, UserProfileView
 
