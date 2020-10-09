@@ -30,7 +30,7 @@ urlpatterns = [
     path('specialties/', include(('doctors.urls', 'doctors'), namespace='doctors')),
     path('page-not-found/', TemplateView.as_view(template_name='404_.html'), name='404_'),
     path('terms_and_conditions/', TemplateView.as_view(template_name='terms_and_conditions.html'), name='t_and_c'),
-    path('consultation/', TemplateView.as_view(template_name="consultation.html"), name="consultation")
+    path('about/', TemplateView.as_view(template_name="about.html"), name="about")
 ]
 
 # administrator backend service url
@@ -38,13 +38,13 @@ urlpatterns += [
     path('admin-the-vibes-virtual-clinic/', admin.site.urls),
 ]
 
-#url to catch any unmatch url for 404...
+# url to catch any unmatch url for 404...
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='404_.html'))]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
     import debug_toolbar
 
-    urlpatterns = [path('__debug__/', include(debug_toolbar.urls)),] + urlpatterns
+    urlpatterns = [path('__debug__/', include(debug_toolbar.urls)), ] + urlpatterns
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
