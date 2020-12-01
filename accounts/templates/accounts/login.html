@@ -1,92 +1,65 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Vibes Virtual Clinic | Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %} Home {% endblock title %}
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.tredes.com.ng/dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" type="text/css" rel="stylesheet">
-  <!-- alert style shit from jQuery -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="/"> THE VIBES <b>VIRTUAL</b> CLINIC</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+{% block header-content %}
+    Login
+{% endblock header-content %}
 
-      <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="username" placeholder="Username" required="required">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-person-booth"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" id="password" placeholder="Password" required="required">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
+{% block header-description %}
+    Another story
+{% endblock header-description %}
+
+{% block content %}
+
+    <section class="section bg-light">
+      <div class="container">
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
+            <div class="col-sm-6">
+
+                <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="username" placeholder="Username" required="required">
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+                    </div>
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="icheck-primary">
+                          <input type="checkbox" id="remember">
+                          <label for="remember">
+                            Remember Me
+                          </label>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                      <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                  </form>
+                <a href="forgot-password.html">I forgot my password</a>
+                <a href="{% url 'account-url:register' %}" class="text-center">Register a new membership</a>
+
             </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
+            <div class="col-sm-6">
+                <h1 class="lead">
+                    Some story
+                </h1>
+            </div>
         </div>
-      </form>
+      </div>
+    </section>
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="{% url 'account-url:register' %}" class="text-center">Register a new membership</a>
-      </p>
-    </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
+{% endblock content %}
 
-<!-- jQuery -->
-<script src="https://cdn.tredes.com.ng/plugins/jquery/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="https://cdn.tredes.com.ng/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="https://cdn.tredes.com.ng/dist/js/adminlte.min.js"></script>
+{% block js_scripts %}
 
-<script>
+    <script>
     $( function () {
         'use strict';
         $(document).ready(function () {
@@ -202,19 +175,4 @@
     } (jQuery));
 </script>
 
-<!--Start of Tawk.to Script-->
-<!--<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5e1b99507e39ea1242a443f1/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>-->
-<!--End of Tawk.to Script-->
-
-</body>
-</html>
+{% endblock js_scripts %}
