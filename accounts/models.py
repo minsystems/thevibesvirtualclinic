@@ -167,7 +167,7 @@ def post_save_profile_receiver(sender, created, instance, *args, **kwargs):
             instance.slug = unique_slug_generator(instance)
             instance.save()
 
-        NextOfKin.objects.get_or_create(user=instance.user, phone='')
+        NextOfKin.objects.get_or_create(user=instance, phone='')
 
 
 post_save.connect(post_save_profile_receiver, sender=Profile)

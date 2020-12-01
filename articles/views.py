@@ -12,6 +12,8 @@ class ArticleList(generic.CreateView, generic.ListView):
 
 class ArticleDetail(generic.DetailView):
     model = Article
+    context_object_name = 'article'
+    template_name = "articles/article_detail.html"
 
     def get_object(self):
         view_count_obj = super(ArticleDetail, self).get_object()

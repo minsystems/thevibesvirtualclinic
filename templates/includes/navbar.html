@@ -1,0 +1,68 @@
+{% url 'dashboard' as home %}
+{% url 'doctors:speciality_category_List' as speciality %}
+{% url 'articles:article_list' as article %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">The Vibes<span>Virtual Clinic</span>  </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample05">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            {% if request.path == home %}
+                <a class="nav-link active" href="/">Home</a>
+            {% else %}
+              <a class="nav-link" href="/">Home</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            {% if request.path == speciality %}
+              <a class="nav-link active" href="{% url 'doctors:speciality_category_List' %}">Services</a>
+            {% else %}
+              <a class="nav-link" href="{% url 'doctors:speciality_category_List' %}">Services</a>
+            {% endif %}
+          </li>
+
+          <li class="nav-item">
+            {% if request.path == article %}
+              <a class="nav-link active" href="{% url 'articles:article_list' %}">Articles</a>
+            {% else %}
+              <a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
+            {% endif %}
+          </li>
+
+          {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account-url:logout' %}">logout</a>
+                </li>
+          {% else %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account-url:register' %}">Register</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account-url:login' %}">Login</a>
+              </li>
+          {% endif %}
+
+            {% if request.user.is_staff %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin-Tools</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                  <a class="dropdown-item" href="/admin-the-vibes-virtual-clinic/" target="_blank">Admin Dashboard</a>
+                  <a class="dropdown-item" href="https://dashboard.paystack.com" target="_blank">Payment Dashboard</a>
+                  <a class="dropdown-item" href="https://dashboard.tawk.to" target="_blank">Chat-Admin Dashboard</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://dior3.herokuapp.com/newcall" target="_blank">Start-Consultation</a>
+              </li>
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+</nav>

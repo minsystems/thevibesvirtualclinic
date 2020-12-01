@@ -86,3 +86,139 @@
     </section>
 
 {% endblock content %}
+
+{% block js_scripts %}
+
+    <script>
+    $( function() {
+        'use strict';
+        // $("#age").datepicker();
+
+        $(document).ready(function () {
+            // Initialize form data
+            var registerForm = $(".registerForm");
+            var registerFormMethod = registerForm.attr("method");
+            var registerFormEnpoint = registerForm.attr("action");
+
+            function displaySubmitting(submitBtn, defaultText, doSubmit) {
+                if (doSubmit) {
+                    submitBtn.addClass("disabled");
+                    submitBtn.html("<i class='fa fa-spin fa-spinner'></i> Sending Data..");
+                } else {
+                    submitBtn.removeClass("disabled");
+                    submitBtn.add(defaultText);
+                }
+            }
+
+            function handleButton(submitBtn, doSubmit) {
+                if (doSubmit){
+                    submitBtn.addClass("disabled");
+                } else {
+                    submitBtn.removeClass("disabled");
+                }
+            }
+
+            var registerFormSubmitBtn = registerForm.find("[type='submit']");
+            var registerFormSubmitBtnText = registerFormSubmitBtn.text();
+
+            // disable button on page-load
+            handleButton(registerFormSubmitBtn, true);
+
+            var checker = document.getElementById('agreeTerms');
+            checker.onchange = function(){
+                if (this.checked){
+                    // perform our custom action here
+                    handleButton(registerFormSubmitBtn, false); // activates button onCheck!
+                    registerForm.submit(function (event) {
+                        event.preventDefault();
+
+                        // using jQuery
+                        function getCookie(name) {
+                            var cookieValue = null;
+                            if (document.cookie && document.cookie !== '') {
+                                var cookies = document.cookie.split(';');
+                                for (var i = 0; i < cookies.length; i++) {
+                                    var cookie = jQuery.trim(cookies[i]);
+                                    // Does this cookie string begin with the name we want?
+                                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                            }
+                            return cookieValue;
+                        }
+                        var csrftoken = getCookie('csrftoken');
+
+                        function csrfSafeMethod(method) {
+                            // these HTTP methods do not require CSRF protection
+                            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                        }
+                        $.ajaxSetup({
+                            beforeSend: function(xhr, settings) {
+                                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                                }
+                            }
+                        });
+
+                        // var registerFormData = registerForm.serialize(); // do not serialize the data, drf would do that
+                        var registerFormData = {
+                            "username": $('#username').val(),
+                            "first_name": $('#first_name').val(),
+                            "last_name": $('#last_name').val(),
+                            "phone": $('#phone').val(),
+                            "email": $('#email').val(),
+                            "password": $('#password').val(),
+                            "confirm_password": $('#confirm_password').val(),
+                        };
+                        var thisForm = $(this);
+
+                        displaySubmitting(registerFormSubmitBtn, "", true);
+
+                        console.log(registerFormData);
+
+                        $.ajax({
+                        method: registerFormMethod,
+                        url: registerFormEnpoint,
+                        data: registerFormData,
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+
+                        success: function (data) {
+                            registerForm[0].reset();
+                            console.log(data);
+                            $.alert({
+                                icon: 'fa fa-check',
+                                title: 'Successful registration for' + data.email,
+                                content: data.message,
+                                theme: 'white',
+                                backgroundDismiss: true,
+                                animationSpeed: 2000,
+                            });
+                            setTimeout(function(){
+                                displaySubmitting(registerFormSubmitBtn, registerFormSubmitBtnText, false)
+                            }, 5000)
+                        }, error: function (error) {
+                            console.log(error);
+                            $.alert({
+                                icon: 'fa fa-warning',
+                                title: 'Oops!',
+                                content: error.responseJSON.email[0],
+                                theme: 'white',
+                                backgroundDismiss: true,
+                                animationSpeed: 2000,
+                            });
+                        }
+                    })
+
+                    })
+                } else {
+                    handleButton(registerFormSubmitBtn, true);
+                }
+            }
+        })
+    } (jQuery));
+  </script>
+
+{% endblock js_scripts %}

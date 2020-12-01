@@ -59,7 +59,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_message(self, obj):
-        return "Thank you for registering. Welcome to TREDES!"
+        return "Thank you for registering. Welcome to The Vibes Virtual Clinic!"
 
     def get_expires(self, obj):
         return timezone.now() + expire_delta - datetime.timedelta(seconds=200)
@@ -102,7 +102,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         auth_login(request, user_obj)
 
         from accounts.models import Profile
-        Profile.objects.get_or_create(
+        Profile.objects.create(
             user=request.user, phone=request.POST.get('phone')
         )
 

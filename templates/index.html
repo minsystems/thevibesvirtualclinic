@@ -180,7 +180,7 @@
                         <div class="media-body">
                           <span class="meta-post">{{ daily_article.created|timesince }}</span>
                           <h3 class="mt-0 text-black text-capitalize"><a href="#" class="text-black">{{ daily_articles.title }}</a></h3>
-                          <p>{{ daily_article.description|truncatechars:300 }}</p>
+                          <p>{{ daily_article.description|truncatewords:10 }}</p>
                           <p class="clearfix">
                             <a href="{% url 'articles:article_detail' slug=daily_article.slug %}" class="float-left">Read more</a>
                             <a href="{% url 'articles:article_detail' slug=daily_article.slug %}" class="float-right meta-chat"><span class="ion-chatbubble"></span>{{ daily_article.view_count }}</a>

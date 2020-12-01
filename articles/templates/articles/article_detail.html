@@ -2,8 +2,6 @@
 {% load static %}
 {% load humanize %}
 
-{% block title %} {{ article.slug }} {% endblock title %}
-
 {% block header-content %}
    {{ article.title  }}
 {% endblock header-content %}
@@ -13,7 +11,6 @@
 {% endblock header-description %}
 
 {% block content %}
-
     <section class="section">
       <div class="container">
         <div class="row justify-content-center element-animate">
