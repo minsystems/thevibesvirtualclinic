@@ -16,10 +16,7 @@
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,23 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="171" column="24" lean-forward="true" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+            <state relative-caret-position="248">
+              <caret line="174" column="24" lean-forward="true" selection-start-line="174" selection-start-column="24" selection-end-line="174" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/views.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -245,7 +239,6 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/articles/views.py" />
         <option value="$PROJECT_DIR$/articles/templates/articles/article_detail.html" />
-        <option value="$PROJECT_DIR$/templates/includes/navbar.html" />
         <option value="$PROJECT_DIR$/accounts/api/views.py" />
         <option value="$PROJECT_DIR$/accounts/api/serializers.py" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
@@ -254,6 +247,7 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login.html" />
         <option value="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" />
+        <option value="$PROJECT_DIR$/templates/includes/navbar.html" />
       </list>
     </option>
   </component>
@@ -416,12 +410,12 @@
       <workItem from="1603812396248" duration="1571000" />
       <workItem from="1606626779089" duration="4978000" />
       <workItem from="1606769942703" duration="9942000" />
-      <workItem from="1608356438677" duration="144000" />
+      <workItem from="1608356438677" duration="486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181864000" />
+    <option name="totallyTimeSpent" value="182206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -763,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/articles/templates/articles/article_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -931,8 +918,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="171" column="24" lean-forward="true" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+        <state relative-caret-position="248">
+          <caret line="174" column="24" lean-forward="true" selection-start-line="174" selection-start-column="24" selection-end-line="174" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
         </state>
       </provider>
     </entry>
