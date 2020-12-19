@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/production.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="61" column="63" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
+              <caret line="61" column="105" selection-start-line="61" selection-start-column="105" selection-end-line="61" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -409,12 +410,12 @@
       <workItem from="1603812396248" duration="1571000" />
       <workItem from="1606626779089" duration="4978000" />
       <workItem from="1606769942703" duration="9942000" />
-      <workItem from="1608356438677" duration="533000" />
+      <workItem from="1608356438677" duration="573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182253000" />
+    <option name="totallyTimeSpent" value="182293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -925,7 +926,7 @@
     <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="61" column="63" selection-start-line="61" selection-start-column="63" selection-end-line="61" selection-end-column="63" />
+          <caret line="61" column="105" selection-start-line="61" selection-start-column="105" selection-end-line="61" selection-end-column="105" />
         </state>
       </provider>
     </entry>
