@@ -168,6 +168,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media_root")
 PROTECTED_ROOT = os.path.join(BASE_DIR, "static", "protected_media")
 
 HOST_SCHEME = "https://"
+CORS_REPLACE_HTTPS_REFERER = True
 SECURE_PROXY_SSL_HEADER = None
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
@@ -175,3 +176,8 @@ CSRF_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_FRAME_DENY = True
+
+#AWS Access Key : AKIARWPUAY2F75NYLXXB
+#AWS Secret Key : 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
+#IAM : thevibesclinicIAM
+#S3 : thevibesclinic
