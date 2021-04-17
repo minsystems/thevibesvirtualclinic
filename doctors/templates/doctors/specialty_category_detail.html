@@ -23,7 +23,7 @@
               <img src="{{ speciality.check_image_url }}" alt="{{ speciality.name }}" class="img-fluid">
               <div class="media-body text-center">
                   {% if request.user.is_authenticated %}
-                    <h3 class="mt-0 text-black">N {{ speciality.price }}</h3>
+                    <h3 class="mt-0 text-black">₦{{ speciality.price }}</h3>
                   {% else %}
                       <h3>Please <a href="{% url 'account-url:login' %}">login</a> to access this service</h3>
                   {% endif %}

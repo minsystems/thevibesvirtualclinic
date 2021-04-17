@@ -29,7 +29,7 @@ urlpatterns = [
     path('articles/', include(('articles.urls', 'articles'), namespace='articles')),
     path('specialties/', include(('doctors.urls', 'doctors'), namespace='doctors')),
     path('page-not-found/', TemplateView.as_view(template_name='404_.html'), name='404_'),
-    path('terms_and_conditions/', TemplateView.as_view(template_name='terms_and_conditions.html'), name='t_and_c'),
+    path('terms_and_conditions/', TemplateView.as_view(template_name='T&C-2021.html'), name='t_and_c'),
     path('about/', TemplateView.as_view(template_name="about.html"), name="about")
 ]
 

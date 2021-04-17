@@ -33,14 +33,14 @@
           <div class="col-md-4 element-animate">
             <div class="media d-block media-custom text-center">
             <a href="{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}">
-                <img src="{{ speciality_category.check_image_url }}" alt="{{ speciality_category.name }}" class="img-fluid">
+                <img src="{{ speciality_category.check_image_url }}" alt="{{ speciality_category.name }}" class="img-fluid", style="height: 200px">
             </a>
               <div class="media-body">
                 <h3 class="mt-0 text-black">{{ speciality_category.name }}</h3>
-                <p>{{ speciality_category.description|truncatewords:6 }}</p>
-                <p>
-                Number of services : {{ speciality_category.num_of_speciality }}
-                </p>
+                <p>{{ speciality_category.description|truncatewords:5 }} <br><a href="{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}">Read more</a></p>
+{#                <p>#}
+{#                Number of services : {{ speciality_category.num_of_speciality }}#}
+{#                </p>#}
               </div>
             </div>
           </div>

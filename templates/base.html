@@ -7,6 +7,8 @@
     <title>{% block title %}  {% endblock title %} | The Vibes Virtual Clinic</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://res.cloudinary.com/geetechlab-com/image/upload/v1618685116/vibes_clinic/tvc3-removebg-preview_buxfrc.png">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/geetechlab-com/image/upload/v1618685116/vibes_clinic/tvc3-removebg-preview_buxfrc.png">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,%20400,%20700" rel="stylesheet">
 
@@ -118,11 +120,11 @@
           <div class="col-md-3 mb-5">
             <h3>Services</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="{% url 'doctors:speciality_list' %}">Find a doctor</a></li>
-              <li><a href="{% url 'doctors:speciality_list' %}">Urgent Care</a></li>
-              <li><a href="{% url 'doctors:speciality_list' %}">Emergency Care</a></li>
-              <li><a href="{% url 'doctors:speciality_list' %}">Procedures &amp; Treatments</a></li>
-              <li><a href="{% url 'doctors:speciality_list' %}">Online Services</a></li>
+              <li><a href="{% url 'doctors:speciality_category_List' %}}">Find a doctor</a></li>
+              <li><a href="{% url 'doctors:speciality_category_List' %}">Available Services</a></li>
+              <li><a href="{% url 'doctors:speciality_category_List' %}">Medical services</a></li>
+              <li><a href="{% url 'doctors:speciality_category_List' %}">Procedures &amp; Treatments</a></li>
+              <li><a href="{% url 'doctors:speciality_category_List' %}">Online Services</a></li>
             </ul>
           </div>
           <div class="col-md-3 mb-5">
@@ -136,11 +138,11 @@
           <div class="col-md-3 mb-5">
             <h3>About</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="#">About The Hospital</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Accreditations &amp; Awards</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Feedback</a></li>
+              <li><a href="{% url 'about' %}">Testimonials</a></li>
+                <li><a href="{% url 'about' %}">Vision</a></li>
+              <li><a href="{% url 'about' %}">Mission</a></li>
+              <li><a href="{% url 'about' %}">Aims & Scope</a></li>
+                <li><a href="{% url 't_and_c' %}">Our terms and conditions</a></li>
             </ul>
           </div>
           <div class="col-md-3 mb-5">
@@ -160,7 +162,7 @@
             <hr class="border-t">
           </div>
           <div class="col-md-6 col-sm-12 copyright">
-              <p>&copy; 2020 The Vibes Virtual Clinic. Designed &amp; Developed by <a href="https://www.geetechlab.com/">Geetech Lab</a> &amp; <a href="https://systems.minloans.com.ng.com/">Minsystems</a></p>
+              <p>&copy; 2020 The Vibes Virtual Clinic. Designed &amp; Developed by <a target="_blank" href="https://www.geetechlab.com/">Geetech Lab</a> &amp; <a target="_blank" href="https://systems.minloans.com.ng/">Minsystems</a></p>
           </div>
           <div class="col-md-6 col-sm-12 text-md-right text-sm-left">
             <a href="#" class="p-2"><span class="fab fa-facebook-f"></span>@thevibesclinic</a>
@@ -213,13 +215,18 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalAppointmentLabel">Please Wait For The Room Key!</h5>
+              <h5 class="modal-title" id="modalAppointmentLabel">Virtual consultancy</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-              A room key would be giving to you for virtual consultancy
+              <ol>
+                  <li>Make payment for any of our <a href="{% url 'doctors:speciality_category_List' %}">services</a>...</li>
+                  <li>Once payment is successful copy your transaction reference number</li>
+                  <li>Chat with us using the dialog below with your transaction reference number</li>
+                  <li>A room key would be giving to you for virtual consultancy</li>
+              </ol>
           </div>
         </div>
       </div>
@@ -300,53 +307,53 @@
                 displaySubmitting(loginFormSubmitBtn, "", true);
 
                 $.ajax({
-                        method: loginFormMethod,
-                        url: loginFormEndpoint,
-                        data: loginFormData,
-                        contentType: 'application/x-www-form-urlencoded',
-                        dataType: 'json',
+                    method: loginFormMethod,
+                    url: loginFormEndpoint,
+                    data: loginFormData,
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
 
-                        success: function (data) {
-                            loginForm[0].reset();
-                            console.log(data);
-                            // perform ajax call to view server
-                            $.ajax({
-                                method: "POST",
-                                url: "{% url 'account-url:login' %}",
-                                data: data,
-                                contentType: 'application/x-www-form-urlencoded',
-                                dataType: 'json',
+                    success: function (data) {
+                        loginForm[0].reset();
+                        console.log(data);
+                        // perform ajax call to view server
+                        $.ajax({
+                            method: "POST",
+                            url: "{% url 'account-url:login' %}",
+                            data: data,
+                            contentType: 'application/x-www-form-urlencoded',
+                            dataType: 'json',
 
-                                success: function (data) {
-                                    console.log(data);
-                                    $.alert({
-                                        title: 'Success!',
-                                        content: 'Logged In Successfully!',
-                                        theme: 'modern',
-                                    });
-                                    setTimeout(function(){
-                                        displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
-                                    }, 500);
-                                    setTimeout(function () {
-                                        window.location.replace("{% url 'dashboard' %}");
-                                    }, 5000);
-                                }
-                            });
-                        }, error: function (error) {
-                            console.log(error);
-                            // var errorData = error.responseJSON('detail');
-                            loginForm[0].reset();
-                            $.alert({
-                                icon: 'fa fa-warning',
-                                title: 'Oops!',
-                                content: "Error During Sign In!",
-                                theme: 'white',
-                                backgroundDismiss: true,
-                                animationSpeed: 2000,
-                            });
-                            displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false);
-                        }
-                    })
+                            success: function (data) {
+                                console.log(data);
+                                $.alert({
+                                    title: 'Success!',
+                                    content: 'Logged In Successfully!',
+                                    theme: 'modern',
+                                });
+                                setTimeout(function(){
+                                    displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
+                                }, 500);
+                                setTimeout(function () {
+                                    window.location.replace("{% url 'dashboard' %}");
+                                }, 5000);
+                            }
+                        });
+                    }, error: function (error) {
+                        console.log(error);
+                        // var errorData = error.responseJSON('detail');
+                        loginForm[0].reset();
+                        $.alert({
+                            icon: 'fa fa-warning',
+                            title: 'Oops!',
+                            content: "Error During Sign In!",
+                            theme: 'white',
+                            backgroundDismiss: true,
+                            animationSpeed: 2000,
+                        });
+                        displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false);
+                    }
+                })
             })
         })
     } (jQuery));

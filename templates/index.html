@@ -12,7 +12,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5 element-animate">
           <div class="col-md-12 text-center mb-5">
-            <h2 class="text-uppercase heading border-bottom mb-4">More About Us</h2>
+            <h2 class="text-uppercase heading border-bottom mb-4">About Us</h2>
             <p class="mb-0 lead">
                 The Vibes Virtual Clinic, a one stop tele-health facility built for the modern-day family,
                 young executives and global explorers. We provide a high class solution to all your health challenges while ensuring a
@@ -20,8 +20,9 @@
                 leaving your comfort zone. No more queuing to see the doctor for you, your children and other family members.
                 The Vibes Virtual Clinic aims to make your clinic experiences enjoyable and worthwhile. With variety of
                 experts at your disposal, you get to enjoy the best clinic experiences, and an opportunity to improve your
-                health while on the go, with no disruption to your usual schedule. Join the ship of the new normal. Register today with
-                The Vibes Virtual Clinic at www.thevibesclinic.com
+                health while on the go, with no disruption to your usual schedule. Join the ship of the new normal.
+                {% if not request.user.is_authenticated %}<a href="{% url 'account-url:register' %}">Register</a> today with
+                The Vibes Virtual Clinic.{% endif %}
             </p>
 
           </div>
@@ -156,7 +157,9 @@
                 The Adolescent/Young Adult friendly portal is especially targeted to reach out to the young ones seeking to
                 have quality care and authentic answers to any of their burning questions from general,
                 sexual and mental health issues to treatment of ailments.</p>
-            <p class="element-animate"><a href="{% url 'account-url:register' %}" class="btn btn-primary btn-lg">Get Started Now</a></p>
+              {% if not request.user.is_authenticated %}
+                <p class="element-animate"><a href="{% url 'account-url:register' %}" class="btn btn-primary btn-lg">Get Started Now</a></p>
+              {% endif %}
           </div>
         </div>
       </div>
