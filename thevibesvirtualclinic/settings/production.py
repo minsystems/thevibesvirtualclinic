@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'debug_toolbar',
+    "bootstrap4",
 ]
 
 FORCE_SESSION_TO_ONE = False

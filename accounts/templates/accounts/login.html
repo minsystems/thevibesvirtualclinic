@@ -2,7 +2,7 @@
 {% load static %}
 {% load humanize %}
 
-{% block title %} Home {% endblock title %}
+{% block title %} Login {% endblock title %}
 
 {% block header-content %}
     Login Page
@@ -19,33 +19,38 @@
       <div class="container">
         <div class="row">
             <div class="col-sm-6">
-
-                <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" id="username" placeholder="Username" required="required">
+                <div class="media d-block media-custom">
+                    <br>
+                    <h5 class="text-center">Login</h5>
+                    <div class="media-body">
+                        <form class="loginForm" action="{% url 'api-auth:login-api' %}" method="POST"> {% csrf_token %}
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" id="username" placeholder="Username" required="required">
+                            </div>
+                            <div class="input-group mb-3">
+                              <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+                            </div>
+                            <div class="row">
+                              <div class="col-8">
+                                <div class="icheck-primary">
+                                  <input type="checkbox" id="remember">
+                                  <label for="remember">
+                                    Remember Me
+                                  </label>
+                                </div>
+                              </div>
+                              <!-- /.col -->
+                              <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                              </div>
+                              <!-- /.col -->
+                            </div>
+                          </form>
+                        <a class="text-left" href="{% url 'password_reset' %}">I forgot my password</a>
+                        <br>
+                        <a class="text-right" href="{% url 'account-url:register' %}" class="text-center">Register a new membership</a>
                     </div>
-                    <div class="input-group mb-3">
-                      <input type="password" class="form-control" id="password" placeholder="Password" required="required">
-                    </div>
-                    <div class="row">
-                      <div class="col-8">
-                        <div class="icheck-primary">
-                          <input type="checkbox" id="remember">
-                          <label for="remember">
-                            Remember Me
-                          </label>
-                        </div>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                      </div>
-                      <!-- /.col -->
-                    </div>
-                  </form>
-                <a href="forgot-password.html">I forgot my password</a>
-                <a href="{% url 'account-url:register' %}" class="text-center">Register a new membership</a>
-
+                </div>
             </div>
             <div class="col-sm-6">
                 <h1 class="lead">
