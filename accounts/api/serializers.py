@@ -52,7 +52,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             'confirm_password',
             'token',
             'expires',
-
             'message',
 
         ]

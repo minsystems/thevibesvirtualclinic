@@ -199,9 +199,6 @@
                             setTimeout(function(){
                                 displaySubmitting(registerFormSubmitBtn, registerFormSubmitBtnText, false)
                             }, 5000)
-                            setTimeout(function () {
-                                window.location.replace("{% url 'dashboard' %}");
-                            }, 4000);
                         }, error: function (error) {
                             console.log(error);
                             $.alert({
@@ -212,7 +209,6 @@
                                 backgroundDismiss: true,
                                 animationSpeed: 2000,
                             });
-                            displaySubmitting(registerFormSubmitBtn, registerFormSubmitBtnText, false)
                         }
                     })
 

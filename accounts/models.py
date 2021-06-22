@@ -132,7 +132,7 @@ class NextOfKin(models.Model):
     relationship = models.CharField(help_text="Relationship with Next Of Kin", max_length=300, default='',
                                     choices=NOK_CHOICES)
     bio = models.TextField(blank=True, null=True)
-    phone = PhoneNumberField()
+    phone = PhoneNumberField(blank=True, null=True)
     street = models.CharField(max_length=300, default='')
     city = models.CharField(max_length=200, default='')
     state = models.CharField(max_length=200, default='', choices=STATE_CHOICES)
@@ -167,7 +167,7 @@ def post_save_profile_receiver(sender, created, instance, *args, **kwargs):
             instance.slug = unique_slug_generator(instance)
             instance.save()
 
-        NextOfKin.objects.get_or_create(user=instance, phone='')
+        NextOfKin.objects.get_or_create(user=instance)
 
 
 post_save.connect(post_save_profile_receiver, sender=Profile)
