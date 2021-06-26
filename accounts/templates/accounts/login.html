@@ -66,14 +66,14 @@
 {% block js_scripts %}
 
 
-<script>
+ <script>
     $( function () {
         'use strict';
         $(document).ready(function () {
             // Initialize data
             var loginForm = $('.loginForm');
             var loginFormMethod = loginForm.attr('method');
-            var loginFormEndpoint = loginForm.attr('action');
+            var loginFormEndpoint = "{% url 'account-url:login' %}";
 
             function displaySubmitting(submitBtn, defaultText, doSubmit) {
                 if (doSubmit) {
@@ -138,31 +138,21 @@
 
                         success: function (data) {
                             loginForm[0].reset();
+                            console.log("i got here first");
                             console.log(data);
-                            // perform ajax call to view server
-                            $.ajax({
-                                method: "POST",
-                                url: "{% url 'account-url:login' %}",
-                                data: data,
-                                contentType: 'application/x-www-form-urlencoded',
-                                dataType: 'json',
-
-                                success: function (data) {
-                                    console.log(data);
-                                    $.alert({
-                                        title: 'Success!',
-                                        content: 'Logged In Successfully!',
-                                        theme: 'modern',
-                                    });
-                                    setTimeout(function(){
-                                        displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
-                                    }, 500);
-                                    setTimeout(function () {
-                                        window.location.replace("{% url 'dashboard' %}");
-                                    }, 5000);
-                                }
+                            $.alert({
+                                title: 'Success!',
+                                content: 'Logged In Successfully!',
+                                theme: 'modern',
                             });
-                        }, error: function (error) {
+                            setTimeout(function(){
+                                displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
+                            }, 500);
+                            setTimeout(function () {
+                                window.location.replace("{% url 'dashboard' %}");
+                            }, 5000);
+                        },
+                        error: function (error) {
                             console.log(error);
                             // var errorData = error.responseJSON('detail');
                             loginForm[0].reset();
