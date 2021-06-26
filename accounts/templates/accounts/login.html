@@ -65,7 +65,8 @@
 
 {% block js_scripts %}
 
-    <script>
+
+<script>
     $( function () {
         'use strict';
         $(document).ready(function () {
@@ -138,19 +139,30 @@
                         success: function (data) {
                             loginForm[0].reset();
                             console.log(data);
-                            $.alert({
-                                title: 'Success!',
-                                content: 'Logged In Successfully!',
-                                theme: 'modern',
+                            // perform ajax call to view server
+                            $.ajax({
+                                method: "POST",
+                                url: "{% url 'account-url:login' %}",
+                                data: data,
+                                contentType: 'application/x-www-form-urlencoded',
+                                dataType: 'json',
+
+                                success: function (data) {
+                                    console.log(data);
+                                    $.alert({
+                                        title: 'Success!',
+                                        content: 'Logged In Successfully!',
+                                        theme: 'modern',
+                                    });
+                                    setTimeout(function(){
+                                        displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
+                                    }, 500);
+                                    setTimeout(function () {
+                                        window.location.replace("{% url 'dashboard' %}");
+                                    }, 5000);
+                                }
                             });
-                            setTimeout(function(){
-                                displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
-                            }, 500);
-                            setTimeout(function () {
-                                window.location.replace("{% url 'dashboard' %}");
-                            }, 5000);
-                        },
-                        error: function (error) {
+                        }, error: function (error) {
                             console.log(error);
                             // var errorData = error.responseJSON('detail');
                             loginForm[0].reset();

@@ -1,0 +1,104 @@
+    <script>
+    $( function () {
+        'use strict';
+        $(document).ready(function () {
+            // Initialize data
+            var loginForm = $('.loginForm');
+            var loginFormMethod = loginForm.attr('method');
+            var loginFormEndpoint = loginForm.attr('action');
+
+            function displaySubmitting(submitBtn, defaultText, doSubmit) {
+                if (doSubmit) {
+                    submitBtn.addClass("disabled");
+                    submitBtn.html("<i class='fa fa-spin fa-spinner'></i> Sending Data..");
+                } else {
+                    submitBtn.removeClass("disabled");
+                    submitBtn.add(defaultText);
+                }
+            }
+
+            var loginFormSubmitBtn = loginForm.find("[type='submit']");
+            var loginFormSubmitBtnText = loginFormSubmitBtn.text();
+
+            loginForm.submit(function (event) {
+                event.preventDefault();
+                // using jQuery
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                var csrftoken = getCookie('csrftoken');
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+
+                var loginFormData = {
+                    "username": $('#username').val(),
+                    "password": $('#password').val(),
+                };
+                console.log(loginFormData);
+                var thisForm = $(this);
+
+                displaySubmitting(loginFormSubmitBtn, "", true);
+
+                $.ajax({
+                        method: loginFormMethod,
+                        url: loginFormEndpoint,
+                        data: loginFormData,
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+
+                        success: function (data) {
+                            loginForm[0].reset();
+                            console.log(data);
+                            $.alert({
+                                title: 'Success!',
+                                content: 'Logged In Successfully!',
+                                theme: 'modern',
+                            });
+                            setTimeout(function(){
+                                displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false)
+                            }, 500);
+                            setTimeout(function () {
+                                window.location.replace("{% url 'dashboard' %}");
+                            }, 5000);
+                        },
+                        error: function (error) {
+                            console.log(error);
+                            // var errorData = error.responseJSON('detail');
+                            loginForm[0].reset();
+                            $.alert({
+                                icon: 'fa fa-warning',
+                                title: 'Oops!',
+                                content: "Error During Sign In!",
+                                theme: 'white',
+                                backgroundDismiss: true,
+                                animationSpeed: 2000,
+                            });
+                            displaySubmitting(loginFormSubmitBtn, loginFormSubmitBtnText, false);
+                        }
+                    })
+            })
+        })
+    } (jQuery));
+</script>
