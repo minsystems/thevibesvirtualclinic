@@ -28,6 +28,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+BASE_URL = 'https://www.thevibesclinic.com'
+
+MANAGERS = (
+    ('Geetechlab NG', "geetechlab@gmail.com"),
+    ('Geetechlab NG', "support@geetechlab.com"),
+)
+
+ADMINS = MANAGERS
 
 # Application definition
 
