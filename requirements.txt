@@ -1,10 +1,13 @@
 asgiref==3.2.10
 Babel==2.8.0
+beautifulsoup4==4.9.3
+bootstrap4==0.1.0
 certifi==2019.11.28
 chardet==3.0.4
 cloudinary==1.19.1
 dj-database-url==0.5.0
 Django==3.0.7
+django-bootstrap4==3.0.1
 django-cors-headers==3.4.0
 django-crispy-forms==1.8.1
 django-debug-toolbar==2.2
@@ -14,6 +17,7 @@ djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 gunicorn==20.0.4
 idna==2.8
+importlib-metadata==2.1.1
 Markdown==3.1.1
 mock==3.0.5
 phonenumbers==8.11.1
@@ -26,6 +30,8 @@ pytz==2019.3
 rave-python==1.1.2
 requests==2.22.0
 six==1.13.0
+soupsieve==2.2.1
 sqlparse==0.3.0
 urllib3==1.25.7
 whitenoise==5.0.1
+zipp==3.4.1
