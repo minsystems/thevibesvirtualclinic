@@ -35,9 +35,29 @@
           </li>
 
           {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account-url:logout' %}">logout</a>
-                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> {{ request.user.username }}</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                    {% if request.user.is_staff %}
+                        <a class="dropdown-item" href="/admin-the-vibes-virtual-clinic/" target="_blank">Admin Dashboard</a>
+                        <a class="dropdown-item" href="https://dashboard.paystack.com" target="_blank">Payment Dashboard</a>
+                        <a class="dropdown-item" href="https://dashboard.tawk.to" target="_blank">Chat-Admin Dashboard</a>
+                        <a class="dropdown-item" href="https://www.theboardroom.com.ng/newcall" target="_blank">Start Consultation</a>
+                        <a class="dropdown-item" href="{% url 'transactions:list' %}">Transactions</a>
+                    {% endif %}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'account-url:logout' %}" target="_blank">logout</a>
+                </div>
+              </li>
+
+              {% if notification_count %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'notifications:list' %}">
+                      <i class="fa fa-bell" aria-hidden="true"></i>
+                          <span class="badge badge-danger">{% if notification_count %}{{ notification_count }}{% else %}0{% endif %}</span>
+                      </a>
+                  </li>
+              {% endif %}
           {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'account-url:register' %}">Register</a>
@@ -48,19 +68,6 @@
               </li>
           {% endif %}
 
-            {% if request.user.is_staff %}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin-Tools</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="/admin-the-vibes-virtual-clinic/" target="_blank">Admin Dashboard</a>
-                  <a class="dropdown-item" href="https://dashboard.paystack.com" target="_blank">Payment Dashboard</a>
-                  <a class="dropdown-item" href="https://dashboard.tawk.to" target="_blank">Chat-Admin Dashboard</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.theboardroom.com.ng/newcall" target="_blank">Start Consultation</a>
-              </li>
-            {% endif %}
         </ul>
       </div>
     </div>

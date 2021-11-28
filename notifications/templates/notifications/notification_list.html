@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block header-content %}
+    Notification Page
+{% endblock header-content %}
+
+{% block header-description %}
+    {% if notifications %}
+        Notifications for {{ request.user.username }}<br>
+        Below are your yet to read notifications...
+    {% else %}
+        Notifications for {{ request.user.username }}<br>
+        You currently has no notification available...
+    {% endif %}
+{% endblock header-description %}
+
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        {% for notification in notifications %}
+            <div class="card w-80">
+              <div class="card-body">
+                <h5 class="card-title">{{ notification.from_admin }}</h5>
+                <p class="card-text">{{ notification.message }}</p>
+                <footer>{{ notification.date|naturaltime }}</footer>
+                  <hr>
+                <a href="{% url 'notifications:delete' notification.pk %}" class="btn btn-danger btn-sm">delete <i class="fa fa-trash" aria-hidden="true"></i></a>
+              </div>
+            </div>
+        {% empty %}
+                <div class="jumbotron">
+                    <div class="container">
+                        <h1 class="display-4"><i class="fa fa-inbox" aria-hidden="true"></i></h1>
+                        <p class="lead">Your notification inbox is empty you currently have no notification message available</p>
+    {#                    <hr class="my-2" width="50%">#}
+    {#                    <p class="lead">#}
+    {#                        <a class="btn btn-primary btn-sm" href="{% url 'dashboard' %}" role="button">Home</a>#}
+    {#                    </p>#}
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+{% endblock %}

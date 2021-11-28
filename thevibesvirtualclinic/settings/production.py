@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'doctors',
     'bookings',
     'articles',
+    'notifications',
+    'transactions',
 
     # third party apps
     'phonenumber_field',
@@ -102,6 +104,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'notifications.views.notification_counts',
             ],
         },
     },

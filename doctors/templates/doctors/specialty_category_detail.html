@@ -12,8 +12,6 @@
 
 
 {% block content %}
-
-
     <section class="section bg-light">
       <div class="container">
         <div class="row">
@@ -36,10 +34,11 @@
                   </form>
                   <script>
                       function payWithPaystack(){
+                        {% include 'includes/ajax_csrf_token.js' %}
                         let fee = parseInt({{ speciality.price|safe }});
                         let finalFee = 100 * fee;
                         var handler = PaystackPop.setup({
-                          key: 'pk_live_62ad848d9d919a21a100dd6fef0bf6c457a70683',
+                          key: {{ key }},
                           email: '{{ request.user.email|safe }}',
                           amount: finalFee,
                           ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
@@ -54,6 +53,26 @@
                           },
                           callback: function(response){
                               alert('success. transaction ref is ' + response.reference + '/n please copy this Reference number to a safe place /n and contact our agent using the Reference number as Evidence of payment');
+                              if(response.status === "success") {
+                                  $.ajax({
+                                      url: "{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}",
+                                      method: "post",
+                                      data: {
+                                          "reference_id": response.reference,
+                                          "paid_user": "{{ request.user }}",
+                                          "speciality_name": "{{ speciality.name }}",
+                                          "status": response.status,
+                                      },
+                                      contentType: "application/x-www-form-urlencoded",
+                                      success: function (data) {
+                                          console.log(data);
+
+                                      }
+                                  });
+                              }
+                              else  {
+                                  alert("Transaction was not completed", "window closed.", response.status);
+                              }
                           },
                           onClose: function(){
                               alert('window closed');

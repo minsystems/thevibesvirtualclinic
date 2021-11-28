@@ -9,7 +9,11 @@ from django.db import models
 
 # Create your models here.
 from django.db.models import Q
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.urls import reverse
+
+from notifications.models import Notification
 
 
 def get_filename_ext(filepath):
@@ -197,3 +201,20 @@ class Speciality(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# @receiver(post_save, sender=Speciality)
+# def user_add_comment_property(sender, instance, *args, **kwargs):
+#     speciality = instance
+#     sender = speciality.by
+#     text_preview = speciality.content[:50]
+#     message = f"{speciality.by} just commented at {comm_prop.name}"
+#     notify = Notification(
+#         comment=comment,
+#         from_user=sender,
+#         to_user=comm_prop.uploaded_by.business_user,
+#         text_preview=text_preview,
+#         notification_type=2,
+#         message=message,
+#     )
+#     notify.save()

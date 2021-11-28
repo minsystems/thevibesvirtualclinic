@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}specialties{% endblock %}
+
+
+{% block header-content %}
+    Transaction Page
+{% endblock header-content %}
+
+{% block header-description %}
+    Transaction history for all customers
+{% endblock header-description %}
+
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+        {% if transactions %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Username</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Phone</th>
+                            <th scope="col">Reference_ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+        {% endif %}
+        {% for transaction in transactions %}
+            <tr>
+                <th scope="row">{{ transaction.transaction_by.pk }}</th>
+                <td>{{ transaction.transaction_by.username }}</td>
+                <td>{{ transaction.transaction_by.email }}</td>
+                <td>{{ transaction.transaction_by.phone }}</td>
+                <td>{{ transaction.ref_id }}</td>
+                <td>{{ transaction.status }}</td>
+                <td>{{ transaction.date }}</td>
+            </tr>
+        {% empty %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                      <h1 class="display-4">Hello, {{ request.user.username }}!</h1>
+                      <p class="lead">Transactions are empty for now</p>
+                      <hr class="my-4">
+                      <p>Do check more often to view customer's transactions...</p>
+                      <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'dashboard' %}" role="button">Home</a>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if transactions %}
+                      </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    <br>
+    <br>
+    <br>
+{% endblock %}

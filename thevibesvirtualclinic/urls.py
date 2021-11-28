@@ -31,7 +31,9 @@ urlpatterns = [
     path('specialties/', include(('doctors.urls', 'doctors'), namespace='doctors')),
     path('page-not-found/', TemplateView.as_view(template_name='404_.html'), name='404_'),
     path('terms_and_conditions/', TemplateView.as_view(template_name='T&C-2021.html'), name='t_and_c'),
-    path('about/', TemplateView.as_view(template_name="about.html"), name="about")
+    path('about/', TemplateView.as_view(template_name="about.html"), name="about"),
+    path('notifications/', include(('notifications.urls', 'notifications'), namespace='notifications')),
+    path('transactions/', include(('transactions.urls', 'transactions'), namespace='transactions')),
 ]
 
 # administrator backend service url
