@@ -10,11 +10,6 @@
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/notes/api/urls.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/notes/api/views.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/routing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notifications/templates/notifications/notification_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notifications/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/ajax_csrf_token.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transactions/templates/transactions/transaction_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transactions/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/rdj_noteapp_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/rdj_noteapp_backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/settings/base.py" afterDir="false" />
@@ -23,28 +18,7 @@
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/rdj_noteapp_backend/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../rdj_noteapp_backend/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_auto_20210622_0134.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookings/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/migrations/0002_speciality.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/migrations/0003_speciality_image_url.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/migrations/0004_speciality_description.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/migrations/0005_auto_20200901_1041.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/templates/doctors/specialty_category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/templates/doctors/specialty_category_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/doctors/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/migrations/0002_services.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/migrations/0003_post.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/settings/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thevibesvirtualclinic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/thevibesvirtualclinic/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,13 +46,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/transactions/admin.py">
+        <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="48" column="82" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -188,8 +159,8 @@
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/register.html" />
         <option value="$PROJECT_DIR$/transactions/templates/transactions/transaction_list.html" />
-        <option value="$PROJECT_DIR$/templates/includes/navbar.html" />
         <option value="$PROJECT_DIR$/transactions/admin.py" />
+        <option value="$PROJECT_DIR$/templates/includes/navbar.html" />
       </list>
     </option>
   </component>
@@ -215,7 +186,13 @@
             <path>
               <item name="thevibesvirtualclinic" type="b2602c69:ProjectViewProjectNode" />
               <item name="thevibesvirtualclinic" type="462c0819:PsiDirectoryNode" />
-              <item name="transactions" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thevibesvirtualclinic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thevibesvirtualclinic" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -334,12 +311,12 @@
       <workItem from="1624696933664" duration="4545000" />
       <workItem from="1624702955624" duration="2532000" />
       <workItem from="1638051007918" duration="191000" />
-      <workItem from="1638052876175" duration="20051000" />
+      <workItem from="1638052876175" duration="21278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270728000" />
+    <option name="totallyTimeSpent" value="271955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -359,7 +336,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2749591" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40261865" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="PyCrunch Timeline" order="13" />
       <window_info anchor="bottom" id="Pylint" order="14" />
@@ -842,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="45" column="85" selection-start-line="45" selection-start-column="85" selection-end-line="45" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -870,6 +840,13 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="48" column="82" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="82" />
         </state>
       </provider>
     </entry>
