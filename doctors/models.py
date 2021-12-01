@@ -188,6 +188,7 @@ class Speciality(models.Model):
     speciality_category = models.ForeignKey(SpecialityCategory, on_delete=models.CASCADE, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    is_on_promo = models.BooleanField(default=False, blank=True, null=True)
 
     class Meta:
         db_table = "speciality"

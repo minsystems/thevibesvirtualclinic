@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>{% block title %}  {% endblock title %} | The Vibes Virtual Clinic</title>
+    <title>{% block title %}  {% endblock title %} | The Vibes Clinic</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="https://res.cloudinary.com/geetechlab-com/image/upload/v1618685116/vibes_clinic/tvc3-removebg-preview_buxfrc.png">
@@ -48,7 +48,8 @@
           </div>
         </div>
       </div>
-      {% include 'includes/navbar.html' %}
+    {% include 'includes/messages.html' %}
+    {% include 'includes/navbar.html' %}
     </header>
     <!-- END header -->
 
@@ -120,7 +121,6 @@
           <div class="col-md-3 mb-5">
             <h3>Services</h3>
             <ul class="footer-link list-unstyled">
-              <li><a href="{% url 'doctors:speciality_category_List' %}}">Find a doctor</a></li>
               <li><a href="{% url 'doctors:speciality_category_List' %}">Available Services</a></li>
               <li><a href="{% url 'doctors:speciality_category_List' %}">Medical services</a></li>
               <li><a href="{% url 'doctors:speciality_category_List' %}">Procedures &amp; Treatments</a></li>

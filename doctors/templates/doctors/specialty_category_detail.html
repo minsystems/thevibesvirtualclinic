@@ -28,59 +28,68 @@
                 <p>{{ speciality.name }}</p>
                {% if request.user.is_authenticated %}
                 <p>
-                  <form>
-                      <script src="https://js.paystack.co/v1/inline.js"></script>
-                      <button class="btn btn-primary btn-sm" type="button" onclick="payWithPaystack()">Make Payment For Consultation</button>
-                  </form>
-                  <script>
-                      function payWithPaystack(){
-                        {% include 'includes/ajax_csrf_token.js' %}
-                        let fee = parseInt({{ speciality.price|safe }});
-                        let finalFee = 100 * fee;
-                        var handler = PaystackPop.setup({
-                          key: {{ key }},
-                          email: '{{ request.user.email|safe }}',
-                          amount: finalFee,
-                          ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                          metadata: {
-                             custom_fields: [
-                                {
-                                    display_name: "{{ request.user|safe }}",
-                                    variable_name: "{{ request.user|safe }}",
-                                    value: "+2348160527819"
-                                }
-                             ]
-                          },
-                          callback: function(response){
-                              alert('success. transaction ref is ' + response.reference + '/n please copy this Reference number to a safe place /n and contact our agent using the Reference number as Evidence of payment');
-                              if(response.status === "success") {
-                                  $.ajax({
-                                      url: "{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}",
-                                      method: "post",
-                                      data: {
-                                          "reference_id": response.reference,
-                                          "paid_user": "{{ request.user }}",
-                                          "speciality_name": "{{ speciality.name }}",
-                                          "status": response.status,
-                                      },
-                                      contentType: "application/x-www-form-urlencoded",
-                                      success: function (data) {
-                                          console.log(data);
+                    {% if speciality.is_on_promo %}
+                        <form method="post" action="{% url 'doctors:promo_notification' speciality.speciality_category.slug speciality.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ speciality.name }}">
+                            <button class="btn btn-primary btn-sm" type="submit">click to start consultation</button>
+                        </form>
+                    {% else %}
+                        <!-- The below button is for payments please dont delete... -->
+                        <form>
+                          <script src="https://js.paystack.co/v1/inline.js"></script>
+                          <button class="btn btn-primary btn-sm" type="button" onclick="payWithPaystack()">Make Payment For Consultation</button>
+                        </form>
+                        <script>
+                          function payWithPaystack(){
+                            {% include 'includes/ajax_csrf_token.js' %}
+                            let fee = parseInt({{ speciality.price|safe }});
+                            let finalFee = 100 * fee;
+                            var handler = PaystackPop.setup({
+                              key: "{{ key|safe }}",
+                              email: '{{ request.user.email|safe }}',
+                              amount: finalFee,
+                              ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                              metadata: {
+                                 custom_fields: [
+                                    {
+                                        display_name: "{{ request.user|safe }}",
+                                        variable_name: "{{ request.user|safe }}",
+                                        value: "+2348160527819"
+                                    }
+                                 ]
+                              },
+                              callback: function(response){
+                                  alert('success. transaction ref is ' + response.reference + '/n please copy this Reference number to a safe place /n and contact our agent using the Reference number as Evidence of payment');
+                                  if(response.status === "success") {
+                                      $.ajax({
+                                          url: "{% url 'doctors:speciality_category_detail' slug=speciality_category.slug %}",
+                                          method: "post",
+                                          data: {
+                                              "reference_id": response.reference,
+                                              "paid_user": "{{ request.user }}",
+                                              "speciality_name": "{{ speciality.name }}",
+                                              "status": response.status,
+                                          },
+                                          contentType: "application/x-www-form-urlencoded",
+                                          success: function (data) {
+                                              console.log(data);
 
-                                      }
-                                  });
+                                          }
+                                      });
+                                  }
+                                  else  {
+                                      alert("Transaction was not completed", "window closed.", response.status);
+                                  }
+                              },
+                              onClose: function(){
+                                  alert('window closed');
                               }
-                              else  {
-                                  alert("Transaction was not completed", "window closed.", response.status);
-                              }
-                          },
-                          onClose: function(){
-                              alert('window closed');
+                            });
+                            handler.openIframe();
                           }
-                        });
-                        handler.openIframe();
-                      }
-                    </script>
+                        </script>
+                    {% endif %}
                 </p>
               {% endif %}
               </div>

@@ -1,18 +1,21 @@
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import generic, View
 from accounts.models import User
 from notifications.models import Notification
 # from transactions.models import Transaction
 from transactions.models import Transaction
 from .models import Speciality, SpecialityCategory
+import random
 
 
 class SpecialityCategoryList(generic.ListView):
     model = SpecialityCategory
     context_object_name = "speciality_categories"
     template_name = "doctors/specialty_category_list.html"
-    
+
 
 class SpecialityCategoryDetail(generic.DetailView):
     model = SpecialityCategory
@@ -25,7 +28,7 @@ class SpecialityCategoryDetail(generic.DetailView):
         context['key'] = "pk_live_62ad848d9d919a21a100dd6fef0bf6c457a70683"
         return context
 
-    def post(self, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         paid_user_str = self.request.POST.get('paid_user')
         paid_ref_id = self.request.POST.get('reference_id')
         status = self.request.POST.get('status')
@@ -61,6 +64,7 @@ class SpecialityCategoryDetail(generic.DetailView):
             status=status
         )
         transaction.save()
+        messages.success(request, f"Payment for {paid_user} was successful your Reference code is {paid_ref_id}")
         return JsonResponse({'message': 'Payment successful'}, status=201)
 
 
@@ -69,3 +73,41 @@ class SpecialityListView(generic.ListView):
     context_object_name = 'specialties'
     paginate_by = 8
     template_name = "doctors/doctor_list.html"
+
+
+class PromoNotification(LoginRequiredMixin, View):
+    def post(self, request, slug, speciality_pk, *args, **kwargs):
+        current_user = request.user
+        speciality_name = get_object_or_404(Speciality, speciality_category__slug=slug, pk=speciality_pk)
+        promo_code = f"VBCLNC-PROMO-{random.randrange(00000, 99999)}"
+        superusers = User.objects.filter(is_superuser=True)
+        notification = Notification(
+            from_admin="Promo Transaction Notification",
+            to_user=current_user,
+            notification_type=1,
+            speciality=speciality_name,
+            message=f"You just requested for {speciality_name}. Your "
+            f"PromoID: {promo_code} \n Copy this Promo code and click on the chat button "
+            f"below to speak with one of our doctor \n Note: This promo stops on Dec-15-2021."
+        )
+        notification.save()
+        for u in superusers:
+            su_notification = Notification(
+                to_user=u,
+                notification_type=1,
+                speciality=speciality_name,
+                message=f"{current_user} just requested for {speciality_name} \n with "
+                f"PromoID: {promo_code} "
+                f"Note: This promo stops on Dec-15-2021."
+            )
+            su_notification.save()
+        # Add Transaction...
+        transaction = Transaction(
+            transaction_name=speciality_name,
+            transaction_by=current_user,
+            ref_id=promo_code,
+            status="On Promo"
+        )
+        transaction.save()
+        messages.success(request, f"Your service request for {speciality_name} is successful & your promo code is {promo_code}")
+        return redirect('dashboard')
